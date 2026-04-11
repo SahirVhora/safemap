@@ -183,8 +183,13 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25)}
       <div class="brand-name">SafeMap</div>
     </div>
     <div class="sep"></div>
-    <div class="fg"><span class="fl">Country</span>
-      <select id="sel-country"><option value="">All Countries</option></select>
+    <div class="fg">
+      <span class="fl">Filter:</span>
+      <div class="search-wrap" style="display:flex; gap:6px; position:relative;">
+        <input type="text" id="search-country" placeholder="Search country..."
+               style="background:var(--surface2); border:1px solid var(--border); color:var(--text); padding:5px 9px; border-radius:6px; font-family:'DM Sans',sans-serif; font-size:.77rem; outline:none; width:140px; transition:border-color .2s;">
+        <select id="sel-country"><option value="">All Countries</option></select>
+      </div>
     </div>
     <div class="fg"><span class="fl">Region</span>
       <select id="sel-region" disabled><option value="">All Regions</option></select>
@@ -1022,6 +1027,15 @@ function wireEvents(){
     zoomToCountry(appState.country);
     applyFilters();
   });
+  document.getElementById("search-country").addEventListener("input",e=>{
+    const val=e.target.value.toLowerCase();
+    const sel=document.getElementById("sel-country");
+    const opts=Array.from(sel.options);
+    opts.forEach(opt=>{
+      const match=opt.value&&opt.text.toLowerCase().includes(val);
+      opt.style.display=match||opt.value===""?"block":"none";
+    });
+  });
   document.getElementById("sel-region").addEventListener("change",e=>{
     appState.region=e.target.value;
     applyFilters();
@@ -1044,6 +1058,8 @@ function wireEvents(){
   document.getElementById("btn-reset").addEventListener("click",()=>{
     appState={country:"",region:"",gender:"all",year:null};
     document.getElementById("sel-country").value="";
+    document.getElementById("search-country").value="";
+    document.getElementById("sel-country").options.forEach(o=>o.style.display="block");
     document.getElementById("sel-region").innerHTML='<option value="">All Regions</option>';
     document.getElementById("sel-region").disabled=true;
     document.querySelectorAll(".tgl-btn").forEach(b=>b.classList.toggle("active",b.dataset.g==="all"));
