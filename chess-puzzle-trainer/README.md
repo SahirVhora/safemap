@@ -28,7 +28,7 @@ Full-stack local prototype with:
 ## Backend setup
 
 ```bash
-cd /home/sahirvhora/projects/calculator_app/chess-puzzle-trainer/server
+cd /home/sahirvhora/projects/experiments/chess-puzzle-trainer/server
 cp .env.example .env
 npm install
 npx prisma generate
@@ -41,15 +41,17 @@ Backend runs on `http://localhost:4000` by default.
 
 Seeded users (optional for admin/auth endpoints):
 
-- Admin: `admin@local.dev` / `password123`
-- Demo: `demo@local.dev` / `password123`
+Set `SEED_ADMIN_PASSWORD` env var before running the seed, or the default dev password is used.
+
+- Admin: `admin@local.dev` (password from `SEED_ADMIN_PASSWORD` env var or `chess-local-dev-only`)
+- Demo: `demo@local.dev` (same password)
 
 ## Frontend setup (no login required)
 
 In a separate terminal:
 
 ```bash
-cd /home/sahirvhora/projects/calculator_app/chess-puzzle-trainer
+cd /home/sahirvhora/projects/experiments/chess-puzzle-trainer
 npm install
 npm run dev
 ```
