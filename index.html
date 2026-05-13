@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeMap — Global Domestic Violence Awareness Dashboard</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="loader">
+  <div class="spinner"></div>
+  <div class="loader-title">SafeMap</div>
+  <div class="loader-sub" id="loader-sub">Loading world map…</div>
+</div>
+
+<div id="app">
+  <div id="topbar">
+    <div class="brand">
+      <div class="brand-icon">🌍</div>
+      <div class="brand-name">SafeMap</div>
+    </div>
+    <div class="sep"></div>
+    <div class="fg"><span class="fl">Country</span>
+      <select id="sel-country"><option value="">All Countries</option></select>
+    </div>
+    <div class="fg"><span class="fl">Region</span>
+      <select id="sel-region" disabled><option value="">All Regions</option></select>
+    </div>
+    <div class="sep"></div>
+    <div class="fg"><span class="fl">Gender</span>
+      <div class="tgl-grp">
+        <button class="tgl-btn" data-g="women">Women</button>
+        <button class="tgl-btn active" data-g="all">All</button>
+        <button class="tgl-btn" data-g="men">Men</button>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <div class="fg"><span class="fl">Year</span>
+      <div class="sl-wrap">
+        <span class="re">2015</span>
+        <input type="range" id="yr-sl" min="2015" max="2025" value="2025">
+        <span class="re">2024</span>
+        <span class="yd" id="yr-v" title="Slide to rightmost position for all years">All</span>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <button class="btn btn-export" id="btn-export">⬇ CSV</button>
+    <button class="btn btn-reset" id="btn-reset">↺ Reset</button>
+  </div>
+
+  <div id="map-area">
+    <svg id="map-svg"></svg>
+
+    <div id="legend">
+      <div class="leg-title">Severity Index <span id="leg-cnt" style="color:var(--text-dim);font-weight:400"></span></div>
+      <div class="leg-row">
+        <svg width="16" height="18" viewBox="-8 -9 16 18"><path d="m0,-7l6.06,3.5l0,7l-6.06,3.5l-6.06,-3.5l0,-7z" fill="#2d4a3e" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>
+        <span class="leg-lbl">Low Risk</span><span class="leg-rng">1–3</span>
+      </div>
+      <div class="leg-row">
+        <svg width="16" height="18" viewBox="-8 -9 16 18"><path d="m0,-7l6.06,3.5l0,7l-6.06,3.5l-6.06,-3.5l0,-7z" fill="#c97d2e" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>
+        <span class="leg-lbl">Moderate Risk</span><span class="leg-rng">4–6</span>
+      </div>
+      <div class="leg-row">
+        <svg width="16" height="18" viewBox="-8 -9 16 18"><path d="m0,-7l6.06,3.5l0,7l-6.06,3.5l-6.06,-3.5l0,-7z" fill="#b91c1c" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>
+        <span class="leg-lbl">High Risk</span><span class="leg-rng">7–10</span>
+      </div>
+      <div class="leg-grad">
+        <div class="leg-bar"></div>
+        <div class="leg-scale"><span>0</span><span>5</span><span>10</span></div>
+      </div>
+      <div class="data-badge"><div class="db-dot" id="db-dot"></div><span id="db-txt">Synthetic + WHO calibrated</span></div>
+    </div>
+
+    <div id="zoom-controls">
+      <button class="zoom-btn" id="zi">+</button>
+      <button class="zoom-btn" id="zo">−</button>
+      <button class="zoom-btn" id="zr">⌂</button>
+    </div>
+
+    <div id="info-panel">
+      <div class="ph">
+        <div><div class="ph-region" id="ph-reg"></div><div class="ph-country" id="ph-cty"></div></div>
+        <button class="ph-close" id="ph-close">✕</button>
+      </div>
+      <div class="pb" id="pb"></div>
+    </div>
+
+    <div id="tooltip"><div class="tt-r" id="tt-r"></div><div class="tt-d" id="tt-d"></div></div>
+    <div id="toast"></div>
+  </div>
+
+  <div id="statsbar">
+    <div class="stat-item"><div class="stat-v" id="s-cases">—</div><div class="stat-l">Est. Affected (WHO)</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-v" id="s-reg" style="font-size:.85rem">—</div><div class="stat-l">Most Affected</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-v" id="s-iss" style="font-size:.85rem">—</div><div class="stat-l">Top Issue</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-v" id="s-sev">—</div><div class="stat-l">Avg Severity</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-v" id="s-cntrs">—</div><div class="stat-l">Countries</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-v" id="s-pts">—</div><div class="stat-l">Regions</div></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="app.js" defer></script>
+</body>
+</html>
