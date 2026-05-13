@@ -1,0 +1,8 @@
+.venv/
+.browsers/
+__pycache__/
+*.pyc
+jobs.db
+results.csv
+*.log
+.DS_Store

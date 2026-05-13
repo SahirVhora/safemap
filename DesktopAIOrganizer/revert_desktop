@@ -1,0 +1,80 @@
+import logging
+import shutil
+from pathlib import Path
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+
+# Folder to temporarily hold conflicting files
+temp_folder = Path("undo_temp")
+temp_folder.mkdir(exist_ok=True)
+
+# Map of new names -> list of original names
+rename_map = {
+    "file-2025-06-22.txt": ["Assesment.txt", "DS160.txt", "Meeting ID 328 797 059 542.txt"],
+    "file-2025-12-02.txt": ["Cred.txt", "Karishma IT support.xlsx"],
+    "file-2025-12-29.xlsx": ["Credential.xlsx", "interview questions.docx"],
+    "file-2026-02-07.ini": ["desktop.ini"],
+    "file-2026-03-17.png": ["exam .png", "Screenshot 2024-08-29 084801.png"],
+    "file-2025-09-16.xlsx": ["IKEA SFSF Integration document.xlsx"],
+    "file-2026-03-17.lnk": ["Manus.lnk", "Rive.lnk"],
+    "pprraaccttiiccee-llaabb-mmaa-2025-06-22.pdf": ["MD102 Labs Instructions.pdf"],
+    "file-2025-06-22.pdf": ["Microsoft Intune Book.pdf"],
+    "file-2026-01-08.docx": ["MISHA LOL.docx"],
+    "file-2026-01-31.txt": ["share code- W39 3C8 5DM.txt"]
+}
+
+# Step 1: Restore all files
+for new_name_str, originals in rename_map.items():
+    current_path = Path(new_name_str)
+    if not current_path.exists():
+        logging.warning("%s not found, skipping.", new_name_str)
+        continue
+
+    for original in originals:
+        original_path = Path(original)
+        if original_path.exists():
+            # Move the renamed file temporarily to avoid overwrite
+            temp_path = temp_folder / current_path.name
+            try:
+                shutil.move(str(current_path), temp_path)
+            except OSError as e:
+                logging.error("Failed to move %s to temp folder: %s", current_path, e)
+                continue
+            logging.warning("%s exists. Moved %s temporarily to %s", original, current_path, temp_path)
+            current_path = temp_path
+
+        try:
+            current_path.rename(original_path)
+        except OSError as e:
+            logging.error("Failed to rename %s to %s: %s", current_path, original_path, e)
+            continue
+        logging.info("Restored %s", original)
+
+# Step 2: Move any leftover files from temp folder back to originals
+for leftover_file in temp_folder.iterdir():
+    restored = False
+    for new_name_str, originals in rename_map.items():
+        for original in originals:
+            original_path = Path(original)
+            if original_path.name == leftover_file.name:
+                if not original_path.exists():
+                    try:
+                        shutil.move(str(leftover_file), original_path)
+                    except OSError as e:
+                        logging.error("Failed to move leftover %s to %s: %s", leftover_file.name, original_path, e)
+                        break
+                    logging.info("Moved leftover %s back to %s", leftover_file.name, original)
+                    restored = True
+                    break
+        if restored:
+            break
+    if not restored:
+        # If no matching original found, keep in temp folder
+        logging.warning("Could not find original for %s, left in %s", leftover_file.name, temp_folder)
+
+# Step 3: Cleanup temp folder if empty
+if not any(temp_folder.iterdir()):
+    temp_folder.rmdir()
+    logging.info("Temporary folder %s removed", temp_folder)
+else:
+    logging.warning("Temporary folder %s not empty, check leftovers", temp_folder)

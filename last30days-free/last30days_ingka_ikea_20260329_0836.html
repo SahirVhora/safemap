@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>last30days — Ingka IKEA</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+.container { max-width: 900px; margin: 0 auto; }
+
+/* Header banner */
+.banner {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.banner h1 { font-size: 1.5rem; color: #f8fafc; }
+.banner .meta { font-size: 0.85rem; color: #94a3b8; margin-top: 0.25rem; }
+.badge {
+    background: #f97316;
+    color: white;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Stat pills */
+.stats {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+.stat {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+.stat strong { color: #f8fafc; font-size: 1rem; }
+
+/* Section headings */
+h2 {
+    font-size: 1.1rem;
+    color: #7dd3fc;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #1e293b;
+}
+h3 { font-size: 1rem; color: #f8fafc; margin: 1.5rem 0 0.5rem; }
+
+/* Cards for snippets */
+.card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+    transition: border-color .2s;
+}
+.card:hover { border-color: #475569; }
+.card .card-title a {
+    font-weight: 600;
+    color: #60a5fa;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.card .card-title a:hover { color: #93c5fd; text-decoration: underline; }
+.card .card-meta {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0.3rem 0 0.7rem;
+}
+.card .card-meta span { margin-right: 0.8rem; }
+.card .snippet {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    border-left: 3px solid #334155;
+    padding-left: 0.8rem;
+}
+
+/* Ranked table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+}
+thead { background: #0f172a; }
+th {
+    padding: 0.7rem 0.8rem;
+    text-align: left;
+    color: #7dd3fc;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+td {
+    padding: 0.65rem 0.8rem;
+    border-top: 1px solid #0f172a;
+    color: #cbd5e1;
+    vertical-align: top;
+}
+tr:hover td { background: #243044; }
+td a { color: #60a5fa; text-decoration: none; }
+td a:hover { text-decoration: underline; }
+.score { font-weight: 700; color: #34d399; }
+.source-badge {
+    background: #ff4500;
+    color: white;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    font-weight: 600;
+}
+.source-badge.hn { background: #ff6600; }
+.source-badge.ddg { background: #de5833; }
+
+/* Claude prompt box */
+.prompt-box {
+    background: #0f172a;
+    border: 1px solid #1d4ed8;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.prompt-box pre {
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.82rem;
+    color: #93c5fd;
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 1.6;
+}
+.copy-btn {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    background: #1d4ed8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background .2s;
+}
+.copy-btn:hover { background: #2563eb; }
+
+footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #475569;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #1e293b;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="banner">
+    <div>
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem">
+        <span class="badge">/last30days-free</span>
+        <h1>Ingka IKEA</h1>
+      </div>
+      <div class="meta">Generated 2026-03-29 08:36 UTC &nbsp;·&nbsp; Sources: Reddit</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong>4</strong><br>results</div>
+    <div class="stat"><strong>39</strong><br>upvotes</div>
+    <div class="stat"><strong>23</strong><br>comments</div>
+    <div class="stat"><strong>30 days</strong><br>lookback</div>
+  </div>
+
+  <h2>Top Results — newest first</h2>
+  <table><thead><tr><th>#</th><th>Source</th><th>Title</th><th>↑</th><th>💬</th><th>Date</th></tr></thead><tbody><tr><td>1</td><td>Reddit</td><td><a href="https://reddit.com/r/shopify/comments/1s1qvpt/this_weeks_top_ecommerce_news_stories_mar_23rd/" target="_blank" rel="noopener">This Week's Top E-commerce News Stories 💥 Mar 23rd, 2026</a></td><td>6</td><td>6</td><td>23 Mar 2026</td></tr><tr><td>2</td><td>Reddit</td><td><a href="https://reddit.com/r/ShopifyeCommerce/comments/1s1quuk/whats_new_in_ecommerce_week_of_mar_23rd_2026/" target="_blank" rel="noopener">What's new in e-commerce? 🔥 Week of Mar 23rd 2026</a></td><td>3</td><td>2</td><td>23 Mar 2026</td></tr><tr><td>3</td><td>Reddit</td><td><a href="https://reddit.com/r/ecommerce/comments/1s1qu9v/ecommerce_industry_news_recap_week_of_mar_23rd/" target="_blank" rel="noopener">E-commerce Industry News Recap 🔥 Week of Mar 23rd, 2026</a></td><td>29</td><td>15</td><td>23 Mar 2026</td></tr><tr><td>4</td><td>Reddit</td><td><a href="https://reddit.com/r/Finanznachrichten/comments/1ry0gus/top_ikea_retailer_to_cut_800_office_jobs/" target="_blank" rel="noopener">Top IKEA retailer to cut 800 office jobs</a></td><td>1</td><td>0</td><td>19 Mar 2026</td></tr></tbody></table>
+
+  <h2>Community Snippets</h2>
+  
+<div class="card">
+  <div class="card-title"><a href="https://reddit.com/r/shopify/comments/1s1qvpt/this_weeks_top_ecommerce_news_stories_mar_23rd/" target="_blank" rel="noopener">This Week's Top E-commerce News Stories 💥 Mar 23rd, 2026</a></div>
+  <div class="card-meta">
+    <span><span class="source-badge ">Reddit</span></span>
+    <span>23 Mar 2026</span>
+    <span><a href="https://reddit.com/r/shopify/comments/1s1qvpt/this_weeks_top_ecommerce_news_stories_mar_23rd/" target="_blank" rel="noopener">↗ Open</a></span>
+  </div>
+  <div class="snippet">Hi [r/Shopify](https://www.reddit.com/r/Shopify/) \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter, which I've published weekly since 2021. I was invi…</div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://reddit.com/r/ShopifyeCommerce/comments/1s1quuk/whats_new_in_ecommerce_week_of_mar_23rd_2026/" target="_blank" rel="noopener">What's new in e-commerce? 🔥 Week of Mar 23rd 2026</a></div>
+  <div class="card-meta">
+    <span><span class="source-badge ">Reddit</span></span>
+    <span>23 Mar 2026</span>
+    <span><a href="https://reddit.com/r/ShopifyeCommerce/comments/1s1quuk/whats_new_in_ecommerce_week_of_mar_23rd_2026/" target="_blank" rel="noopener">↗ Open</a></span>
+  </div>
+  <div class="snippet">Hi [r/ShopifyeCommerce](https://www.reddit.com/r/ShopifyeCommerce/) \- I'm Paul and I follow the e-commerce industry closely for my [Shopifreaks E-commerce Newsletter](https://www.shopifreaks.com/). E…</div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://reddit.com/r/ecommerce/comments/1s1qu9v/ecommerce_industry_news_recap_week_of_mar_23rd/" target="_blank" rel="noopener">E-commerce Industry News Recap 🔥 Week of Mar 23rd, 2026</a></div>
+  <div class="card-meta">
+    <span><span class="source-badge ">Reddit</span></span>
+    <span>23 Mar 2026</span>
+    <span><a href="https://reddit.com/r/ecommerce/comments/1s1qu9v/ecommerce_industry_news_recap_week_of_mar_23rd/" target="_blank" rel="noopener">↗ Open</a></span>
+  </div>
+  <div class="snippet">Hi r/ecommerce \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories …</div>
+</div>
+<div class="card">
+  <div class="card-title"><a href="https://reddit.com/r/Finanznachrichten/comments/1ry0gus/top_ikea_retailer_to_cut_800_office_jobs/" target="_blank" rel="noopener">Top IKEA retailer to cut 800 office jobs</a></div>
+  <div class="card-meta">
+    <span><span class="source-badge ">Reddit</span></span>
+    <span>19 Mar 2026</span>
+    <span><a href="https://reddit.com/r/Finanznachrichten/comments/1ry0gus/top_ikea_retailer_to_cut_800_office_jobs/" target="_blank" rel="noopener">↗ Open</a></span>
+  </div>
+  <div class="snippet">People queue at Ikea in Wembley, London, Britain, June 1, 2020. REUTERS/Toby Melville/File Photo [Purchase Licensing Rights, opens new tab](https://www.reutersconnect.com/item/people-queue-at-ikea-in-…</div>
+</div>
+
+  
+<h2>Claude Prompt</h2>
+<div class="prompt-box">
+  <button class="copy-btn" onclick="copyPrompt()">Copy</button>
+  <pre id="claude-prompt">Based on recent community discussions about "Ingka IKEA" (last 30 days),
+here are the top sources. Please synthesise:
+1. Main patterns and best practices the community has converged on
+2. Key warnings or gotchas mentioned repeatedly
+3. Your recommended approach given this real-world context
+
+SOURCES:
+- This Week's Top E-commerce News Stories 💥 Mar 23rd, 2026 (Reddit, 23 Mar 2026, ↑6) — https://reddit.com/r/shopify/comments/1s1qvpt/this_weeks_top_ecommerce_news_stories_mar_23rd/
+- What's new in e-commerce? 🔥 Week of Mar 23rd 2026 (Reddit, 23 Mar 2026, ↑3) — https://reddit.com/r/ShopifyeCommerce/comments/1s1quuk/whats_new_in_ecommerce_week_of_mar_23rd_2026/
+- E-commerce Industry News Recap 🔥 Week of Mar 23rd, 2026 (Reddit, 23 Mar 2026, ↑29) — https://reddit.com/r/ecommerce/comments/1s1qu9v/ecommerce_industry_news_recap_week_of_mar_23rd/
+- Top IKEA retailer to cut 800 office jobs (Reddit, 19 Mar 2026, ↑1) — https://reddit.com/r/Finanznachrichten/comments/1ry0gus/top_ikea_retailer_to_cut_800_office_jobs/</pre>
+</div>
+
+  <footer>Generated by last30days-free &nbsp;·&nbsp; no API key required</footer>
+</div>
+<script>
+function copyPrompt() {
+    const pre = document.getElementById('claude-prompt');
+    navigator.clipboard.writeText(pre.textContent).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+}
+</script>
+</body>
+</html>

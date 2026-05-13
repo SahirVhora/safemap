@@ -1,0 +1,5 @@
+# Metal Predictor – Python dependencies
+# Standard library covers everything except Excel export.
+# Install all with:  pip install -r requirements.txt
+
+openpyxl>=3.0

@@ -1,0 +1,7 @@
+node_modules
+
+# SF Query Builder
+sf-query-builder/settings.yaml
+sf-query-builder/.secrets.yaml
+sf-query-builder/query_history.db
+sf-query-builder/.venv/

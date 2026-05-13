@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #e5ecf6;
+  background: #070b12;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(45, 212, 191, 0.15), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(56, 189, 248, 0.12), transparent 56%),
+    #070b12;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-slate-700/60 bg-slate-950/80 shadow-[0_14px_36px_rgba(0,0,0,0.32)];
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-slate-600/70 bg-slate-800/70 px-2.5 py-1 text-xs text-slate-300;
+  }
+
+  .btn-primary {
+    @apply rounded-xl border border-teal-300/30 bg-teal-500/20 px-3 py-2 text-sm font-semibold text-teal-100 transition hover:bg-teal-400/30;
+  }
+
+  .btn-secondary {
+    @apply rounded-xl border border-slate-600/70 bg-slate-800/70 px-3 py-2 text-sm font-semibold text-slate-200 transition hover:border-slate-500 hover:bg-slate-700/80;
+  }
+
+  .btn-danger {
+    @apply rounded-xl border border-rose-300/30 bg-rose-500/20 px-3 py-2 text-sm font-semibold text-rose-100 transition hover:bg-rose-500/30;
+  }
+}

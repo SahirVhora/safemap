@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playwright Clicker</title>
+  <style>
+    :root {
+      --bg: #0a0b0f;
+      --surface: #111318;
+      --surface-2: #1a1d24;
+      --border: #2a2d35;
+      --accent: #5865f2;
+      --accent-dim: #3c4499;
+      --text: #e8eaf0;
+      --text-2: #8b8fa8;
+      --green: #22c55e;
+      --green-bg: #052e16;
+      --red: #ef4444;
+      --red-bg: #2d0a0a;
+      --amber: #f59e0b;
+      --radius: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Top nav ─────────────────────────────────────────────── */
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 24px;
+      height: 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .topnav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .topnav-logo .icon {
+      width: 28px; height: 28px;
+      background: var(--accent);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+    .topnav-sep { flex: 1; }
+    .topnav-badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: var(--surface-2);
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+
+    /* ── Layout ──────────────────────────────────────────────── */
+    .layout {
+      display: flex;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      align-items: flex-start;
+    }
+
+    .main { flex: 1; min-width: 0; }
+
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      margin-left: 24px;
+      position: sticky;
+      top: 80px;
+    }
+
+    /* ── Stepper ─────────────────────────────────────────────── */
+    .stepper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      position: relative;
+    }
+    .step-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: calc(16px + 8px);
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: var(--border);
+      transition: background .3s;
+    }
+    .step-item.done:not(:last-child)::after { background: var(--accent); }
+    .step-circle {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-2);
+      background: var(--surface);
+      flex-shrink: 0;
+      transition: all .2s;
+      z-index: 1;
+    }
+    .step-item.active .step-circle {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #1a1e3d;
+    }
+    .step-item.done .step-circle {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .step-label {
+      font-size: 12px;
+      color: var(--text-2);
+      white-space: nowrap;
+      display: none;
+    }
+    .step-item.active .step-label,
+    .step-item.done .step-label { display: block; }
+    .step-item.active .step-label { color: var(--text); font-weight: 500; }
+
+    /* ── Step panels ─────────────────────────────────────────── */
+    .step-panel { display: none; animation: fadeIn .2s ease; }
+    .step-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ── Card ────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Collapsible format ref ──────────────────────────────── */
+    details summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 4px 0 14px;
+      user-select: none;
+    }
+    details summary::after {
+      content: "▾";
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--text-2);
+      transition: transform .2s;
+    }
+    details[open] summary::after { transform: rotate(180deg); }
+
+    /* ── Table ───────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead tr { background: var(--surface-2); }
+    th {
+      text-align: left;
+      padding: 9px 12px;
+      color: var(--text-2);
+      font-weight: 500;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--surface-2); }
+    .cell-mono { font-family: monospace; font-size: 12px; color: #7dd3fc; }
+    .cell-url { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Badges ──────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .badge-required { background: #3d0a0a; color: #fca5a5; }
+    .badge-optional { background: #0c2040; color: #93c5fd; }
+    .badge-ok { background: var(--green-bg); color: var(--green); }
+    .badge-fail { background: var(--red-bg); color: var(--red); }
+    .badge-running { background: #1a1e3d; color: #818cf8; animation: pulse .8s infinite alternate; }
+    .badge-done { background: var(--green-bg); color: var(--green); }
+    .badge-error { background: var(--red-bg); color: var(--red); }
+    .badge-uploaded { background: var(--surface-2); color: var(--text-2); }
+    @keyframes pulse { from { opacity: .6; } to { opacity: 1; } }
+
+    /* ── Drop zone ───────────────────────────────────────────── */
+    .drop-zone {
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 40px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .drop-zone:hover, .drop-zone.over {
+      border-color: var(--accent);
+      background: #1a1e3d22;
+    }
+    .drop-zone svg { opacity: .4; margin-bottom: 12px; }
+    .drop-zone strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .drop-zone p { color: var(--text-2); font-size: 13px; }
+
+    /* ── File pill ───────────────────────────────────────────── */
+    .file-pill {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: #0c2040;
+      border: 1px solid #1a3a6a;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    .file-pill.show { display: flex; }
+    .file-pill-name { color: #7dd3fc; flex: 1; }
+    .file-pill-count { color: var(--green); font-weight: 700; }
+
+    /* ── Buttons ─────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: opacity .15s, background .15s;
+      text-decoration: none;
+    }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn:not(:disabled):hover { opacity: .85; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-success { background: #15803d; color: #fff; }
+    .btn-ghost { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+    .btn-sm { padding: 5px 11px; font-size: 12px; border-radius: 6px; }
+
+    .btn-row { display: flex; gap: 10px; align-items: center; margin-top: 16px; flex-wrap: wrap; }
+
+    /* ── Toggle group (mode selector) ───────────────────────── */
+    .toggle-group {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .toggle-group button {
+      padding: 7px 18px;
+      border: none;
+      background: transparent;
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+    .toggle-group button.active {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+    .toggle-group button:not(.active):hover { background: var(--surface-2); color: var(--text); }
+
+    /* ── Switch ──────────────────────────────────────────────── */
+    .switch-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-2);
+    }
+    .switch { position: relative; width: 36px; height: 20px; flex-shrink: 0; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .switch-track {
+      position: absolute; inset: 0;
+      background: var(--border);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .switch-track::before {
+      content: "";
+      position: absolute;
+      width: 14px; height: 14px;
+      background: #fff;
+      border-radius: 50%;
+      left: 3px; top: 3px;
+      transition: transform .2s;
+    }
+    .switch input:checked + .switch-track { background: var(--accent); }
+    .switch input:checked + .switch-track::before { transform: translateX(16px); }
+
+    /* ── Config row ──────────────────────────────────────────── */
+    .config-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 14px;
+    }
+    .config-label { font-size: 12px; color: var(--text-2); margin-bottom: 6px; }
+
+    /* ── Progress bar ────────────────────────────────────────── */
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .progress-header span:last-child { color: var(--text-2); font-size: 12px; }
+    .progress-track {
+      height: 6px;
+      background: var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 6px;
+      width: 0%;
+      transition: width .4s ease, background .4s ease;
+    }
+    .progress-fill.amber { background: var(--amber); }
+    .progress-fill.red   { background: var(--red); }
+
+    /* ── Log panel ───────────────────────────────────────────── */
+    .log-panel {
+      background: #05060a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+      font-size: 12px;
+      height: 280px;
+      overflow-y: auto;
+      margin-top: 16px;
+      color: var(--text-2);
+    }
+    .log-line { padding: 1px 0; display: flex; gap: 10px; }
+    .log-ts { color: #3d4252; flex-shrink: 0; }
+    .log-ok .log-msg { color: #4ade80; }
+    .log-err .log-msg { color: #f87171; }
+    .log-info .log-msg { color: #7dd3fc; }
+    .log-warn .log-msg { color: #fbbf24; }
+
+    /* ── Status banner ───────────────────────────────────────── */
+    .status-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .banner-running { background: #1a1e3d; border: 1px solid #2d3380; color: #818cf8; }
+    .banner-done { background: var(--green-bg); border: 1px solid #14532d; color: var(--green); }
+    .banner-error { background: var(--red-bg); border: 1px solid #7f1d1d; color: var(--red); }
+
+    /* ── Summary cards ───────────────────────────────────────── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .summary-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .summary-card .num { font-size: 32px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .summary-card .lbl { font-size: 12px; color: var(--text-2); }
+    .num-total { color: var(--text); }
+    .num-ok { color: var(--green); }
+    .num-fail { color: var(--red); }
+
+    /* ── History panel ───────────────────────────────────────── */
+    .history-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .history-header {
+      padding: 14px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-2);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-bottom: 1px solid var(--border);
+    }
+    .history-list { max-height: 420px; overflow-y: auto; }
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .history-item:last-child { border-bottom: none; }
+    .history-item:hover { background: var(--surface-2); }
+    .history-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-done { background: var(--green); }
+    .dot-running { background: var(--accent); animation: pulse .8s infinite alternate; }
+    .dot-error { background: var(--red); }
+    .dot-uploaded { background: var(--text-2); }
+    .history-info { flex: 1; min-width: 0; }
+    .history-id { font-size: 11px; font-family: monospace; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .history-meta { font-size: 11px; color: #4a4d5a; margin-top: 1px; }
+    .history-dl { color: var(--accent); font-size: 16px; text-decoration: none; }
+    .history-dl:hover { color: #818cf8; }
+    .history-empty { padding: 24px 16px; text-align: center; color: var(--text-2); font-size: 13px; }
+
+    /* ── Download btn row ────────────────────────────────────── */
+    .dl-row { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 800px) {
+      .layout { flex-direction: column; padding: 16px; }
+      .sidebar { width: 100%; margin-left: 0; position: static; }
+      .summary-grid { grid-template-columns: repeat(3, 1fr); }
+      .step-label { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ────────────────────────────────────────────────── -->
+  <nav class="topnav">
+    <a class="topnav-logo" href="/">
+      <span class="icon">⚡</span>
+      Playwright Clicker
+    </a>
+    <span class="topnav-sep"></span>
+    <span class="topnav-badge">Automation Tool</span>
+  </nav>
+
+  <div class="layout">
+    <div class="main">
+
+      <!-- ── Stepper ─────────────────────────────────────────── -->
+      <div class="stepper">
+        <div class="step-item active" id="step-dot-1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Upload</span>
+        </div>
+        <div class="step-item" id="step-dot-2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Configure</span>
+        </div>
+        <div class="step-item" id="step-dot-3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Running</span>
+        </div>
+        <div class="step-item" id="step-dot-4">
+          <div class="step-circle">✓</div>
+          <span class="step-label">Results</span>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- Step 1 — Upload                                     -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <div class="step-panel active" id="panel-1">
+
+        <!-- Format reference (collapsible) -->
+        <div class="card">
+          <details>
+            <summary>📋 Spreadsheet Format</summary>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Column</th><th>Type</th><th>Required</th><th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="cell-mono">url</td>
+                    <td>text</td>
+                    <td><span class="badge badge-required">required</span></td>
+                    <td>Full URL to navigate to</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">selector</td>
+                    <td>text</td>
+                    <td><span class="badge badge-required">required</span></td>
+                    <td>CSS selector for the element to click</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">click_count</td>
+                    <td>number</td>
+                    <td><span class="badge badge-optional">optional</span></td>
+                    <td>How many times to click (default: 1)</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">delay_ms</td>
+                    <td>number</td>
+                    <td><span class="badge badge-optional">optional</span></td>
+                    <td>Wait between clicks in ms (default: 1000)</td>
+                  </tr>
+                  <tr>
+                    <td class="cell-mono">notes</td>
+                    <td>text</td>
+                    <td><span class="badge badge-optional">optional</span></td>
+                    <td>Your notes — ignored by the engine</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="margin-top:14px">
+              <a href="/download-sample" class="btn btn-ghost btn-sm">⬇ Download sample.xlsx</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Drop zone -->
+        <div class="card">
+          <div class="card-title">📂 Upload Tasks File</div>
+          <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <strong>Click to browse or drag &amp; drop</strong>
+            <p>Accepts .xlsx files only</p>
+          </div>
+          <input type="file" id="file-input" accept=".xlsx" style="display:none" />
+          <div class="file-pill" id="file-pill">
+            <span>📄</span>
+            <span class="file-pill-name" id="file-pill-name"></span>
+            <span class="file-pill-count" id="file-pill-count"></span>
+          </div>
+          <div id="upload-error" style="display:none; color:var(--red); font-size:13px; margin-top:10px;"></div>
+        </div>
+
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- Step 2 — Preview & Configure                        -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <div class="step-panel" id="panel-2">
+
+        <!-- Task preview table -->
+        <div class="card">
+          <div class="card-title">📋 Task Preview</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th><th>URL</th><th>Selector</th><th>Clicks</th><th>Delay (ms)</th>
+                </tr>
+              </thead>
+              <tbody id="preview-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Run configuration -->
+        <div class="card">
+          <div class="card-title">⚙️ Run Configuration</div>
+
+          <div style="margin-bottom:14px">
+            <div class="config-label">Execution mode</div>
+            <div class="toggle-group">
+              <button id="mode-fg" class="active" onclick="setMode('foreground')">🖥 Foreground</button>
+              <button id="mode-bg" onclick="setMode('background')">⏳ Background</button>
+            </div>
+            <div id="mode-desc" style="margin-top:8px; font-size:12px; color:var(--text-2);">
+              Watch live logs stream in real-time.
+            </div>
+          </div>
+
+          <div class="config-row">
+            <div>
+              <div class="config-label">Browser visibility</div>
+              <div class="switch-row">
+                <label class="switch">
+                  <input type="checkbox" id="headless-toggle" checked />
+                  <span class="switch-track"></span>
+                </label>
+                Run headless (no visible browser window)
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="startRun()">▶ Run Automation</button>
+            <button class="btn btn-ghost" onclick="goToStep(1)">← Back</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- Step 3 — Running                                    -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <div class="step-panel" id="panel-3">
+        <div class="card">
+          <div id="run-banner" class="status-banner banner-running">
+            <span id="run-banner-icon">⏳</span>
+            <span id="run-banner-text">Initialising…</span>
+          </div>
+
+          <div class="progress-header">
+            <span id="progress-label">0 / 0 tasks</span>
+            <span id="progress-pct">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+
+          <div class="log-panel" id="log-panel"></div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- Step 4 — Results                                    -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <div class="step-panel" id="panel-4">
+
+        <div class="card">
+          <div class="card-title">✅ Run Complete</div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="num num-total" id="sum-total">—</div>
+              <div class="lbl">Total Tasks</div>
+            </div>
+            <div class="summary-card">
+              <div class="num num-ok" id="sum-ok">—</div>
+              <div class="lbl">Succeeded</div>
+            </div>
+            <div class="summary-card">
+              <div class="num num-fail" id="sum-fail">—</div>
+              <div class="lbl">Failed</div>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>URL</th><th>Selector</th><th>Clicks</th><th>Status</th><th>Error</th></tr>
+              </thead>
+              <tbody id="results-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="dl-row">
+            <a id="dl-csv-btn" href="#" class="btn btn-success">⬇ Download Results CSV</a>
+            <button class="btn btn-ghost" onclick="resetAll()">↩ New Job</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- ── Sidebar: job history ────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="history-panel">
+        <div class="history-header">🕓 Job History</div>
+        <div class="history-list" id="history-list">
+          <div class="history-empty">No jobs yet</div>
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /layout -->
+
+  <script>
+    const state = {
+      step: 1,
+      jobId: null,
+      taskCount: 0,
+      tasks: [],
+      mode: 'foreground',
+      headless: true,
+      pollTimer: null,
+      logCount: 0,
+    };
+
+    // ── Stepper ──────────────────────────────────────────────
+    function goToStep(n) {
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById(`step-dot-${i}`);
+        const panel = document.getElementById(`panel-${i}`);
+        dot.classList.remove('active', 'done');
+        panel.classList.remove('active');
+        if (i < n) dot.classList.add('done');
+        if (i === n) { dot.classList.add('active'); panel.classList.add('active'); }
+      }
+      state.step = n;
+    }
+
+    // ── Drag & drop ──────────────────────────────────────────
+    const dropZone = document.getElementById('drop-zone');
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
+    dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('over'); handleFile(e.dataTransfer.files[0]); });
+    document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
+
+    async function handleFile(file) {
+      if (!file) return;
+      if (!file.name.endsWith('.xlsx')) { showUploadError('Only .xlsx files are accepted.'); return; }
+      hideUploadError();
+
+      const fd = new FormData();
+      fd.append('file', file);
+
+      let data;
+      try {
+        const res = await fetch('/upload', { method: 'POST', body: fd });
+        data = await res.json();
+      } catch (e) { showUploadError('Upload failed: ' + e); return; }
+
+      if (data.error) { showUploadError(data.error); return; }
+
+      state.jobId = data.job_id;
+      state.taskCount = data.task_count;
+      state.tasks = data.tasks;
+      state.logCount = 0;
+
+      document.getElementById('file-pill-name').textContent = file.name;
+      document.getElementById('file-pill-count').textContent = data.task_count + ' tasks';
+      document.getElementById('file-pill').classList.add('show');
+
+      renderPreviewTable(data.tasks);
+      loadHistory();
+      goToStep(2);
+    }
+
+    function showUploadError(msg) {
+      const el = document.getElementById('upload-error');
+      el.textContent = '⚠ ' + msg;
+      el.style.display = 'block';
+    }
+    function hideUploadError() {
+      document.getElementById('upload-error').style.display = 'none';
+    }
+
+    // ── Preview table ────────────────────────────────────────
+    function renderPreviewTable(tasks) {
+      const tbody = document.getElementById('preview-tbody');
+      tbody.innerHTML = tasks.map((t, i) => `
+        <tr>
+          <td style="color:var(--text-2)">${i + 1}</td>
+          <td class="cell-mono cell-url" title="${esc(t.url)}">${esc(t.url)}</td>
+          <td class="cell-mono cell-url" title="${esc(t.selector)}">${esc(t.selector)}</td>
+          <td>${t.click_count}</td>
+          <td>${t.delay_ms}</td>
+        </tr>
+      `).join('');
+    }
+
+    // ── Mode selector ────────────────────────────────────────
+    function setMode(m) {
+      state.mode = m;
+      document.getElementById('mode-fg').classList.toggle('active', m === 'foreground');
+      document.getElementById('mode-bg').classList.toggle('active', m === 'background');
+      document.getElementById('mode-desc').textContent = m === 'foreground'
+        ? 'Watch live logs stream in real-time.'
+        : 'Returns immediately — you can close the tab and check back later.';
+    }
+
+    // ── Start run ────────────────────────────────────────────
+    async function startRun() {
+      state.headless = document.getElementById('headless-toggle').checked;
+      goToStep(3);
+      setBanner('running', '⏳', 'Running…');
+      resetProgress();
+      clearLog();
+
+      const res = await fetch(`/run/${state.jobId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mode: state.mode, headless: state.headless }),
+      });
+
+      if (!res.ok) {
+        setBanner('error', '❌', 'Failed to start job');
+        return;
+      }
+
+      if (state.mode === 'foreground') {
+        await streamForeground(res);
+      } else {
+        const data = await res.json();
+        appendLog('Job dispatched in background — polling every 2s…', 'log-info');
+        startPolling();
+      }
+    }
+
+    // ── Foreground: read SSE stream ──────────────────────────
+    async function streamForeground(res) {
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const chunks = buf.split('\n\n');
+        buf = chunks.pop();
+
+        for (const chunk of chunks) {
+          let event = 'log', data = '';
+          for (const line of chunk.split('\n')) {
+            if (line.startsWith('event:')) event = line.slice(6).trim();
+            if (line.startsWith('data:')) data = line.slice(5).trim();
+          }
+          if (event === 'log') {
+            const cls = data.includes('→ OK') ? 'log-ok' : data.includes('FAIL') || data.includes('ERROR') ? 'log-err' : 'log-info';
+            appendLog(data, cls);
+            updateProgressFromLog(data);
+          }
+          if (event === 'done') {
+            setBanner('done', '✅', 'Completed successfully');
+            await loadResults();
+          }
+          if (event === 'error') {
+            setBanner('error', '❌', data);
+            appendLog('ERROR: ' + data, 'log-err');
+          }
+        }
+      }
+    }
+
+    // ── Background: poll /status ─────────────────────────────
+    function startPolling() {
+      state.pollTimer = setInterval(async () => {
+        const res = await fetch(`/status/${state.jobId}`);
+        const data = await res.json();
+
+        // Append only unseen log lines using absolute count
+        const totalLogs = data.total_logs || data.logs.length;
+        const baseOffset = Math.max(totalLogs - data.logs.length, 0);
+        for (let i = 0; i < data.logs.length; i++) {
+          const absoluteIdx = baseOffset + i;
+          if (absoluteIdx < state.logCount) continue;
+          const line = data.logs[i];
+          const cls = line.includes('→ OK') ? 'log-ok' : line.includes('FAIL') || line.includes('ERROR') ? 'log-err' : 'log-info';
+          appendLog(line, cls);
+        }
+        state.logCount = totalLogs;
+
+        if (data.progress) updateProgress(data.progress.current, data.progress.total);
+        setBanner('running', '⏳', `Running… (${data.progress?.current || 0}/${data.progress?.total || 0})`);
+
+        if (data.status === 'done') {
+          clearInterval(state.pollTimer);
+          setBanner('done', '✅', 'Completed successfully');
+          await loadResults();
+        } else if (data.status === 'error') {
+          clearInterval(state.pollTimer);
+          setBanner('error', '❌', 'Job failed — check logs');
+        }
+      }, 2000);
+    }
+
+    // ── Parse progress from log line "Task X/Y" ──────────────
+    function updateProgressFromLog(msg) {
+      const m = msg.match(/Task (\d+)\/(\d+)/);
+      if (m) updateProgress(parseInt(m[1]) - 1, parseInt(m[2]));
+      if (msg.includes('→ OK') || msg.includes('→ FAIL')) {
+        const m2 = document.getElementById('progress-label').textContent.match(/(\d+) \/ (\d+)/);
+        if (m2) updateProgress(parseInt(m2[1]) + 1, parseInt(m2[2]));
+      }
+    }
+
+    function updateProgress(current, total) {
+      if (!total) return;
+      const pct = Math.round((current / total) * 100);
+      const fill = document.getElementById('progress-fill');
+      fill.style.width = pct + '%';
+      fill.classList.remove('amber', 'red');
+      if (pct > 80) fill.classList.add('red');
+      else if (pct > 50) fill.classList.add('amber');
+      document.getElementById('progress-label').textContent = `${current} / ${total} tasks`;
+      document.getElementById('progress-pct').textContent = pct + '%';
+    }
+
+    function resetProgress() {
+      updateProgress(0, state.taskCount);
+    }
+
+    // ── Results ──────────────────────────────────────────────
+    async function loadResults() {
+      loadHistory();
+      const res = await fetch(`/results/${state.jobId}/json`);
+      const rows = await res.json();
+      if (rows.error) return;
+
+      const ok = rows.filter(r => r.status === 'OK').length;
+      const fail = rows.length - ok;
+
+      document.getElementById('sum-total').textContent = rows.length;
+      document.getElementById('sum-ok').textContent = ok;
+      document.getElementById('sum-fail').textContent = fail;
+
+      document.getElementById('results-tbody').innerHTML = rows.map(r => `
+        <tr>
+          <td class="cell-mono cell-url" title="${esc(r.url)}">${esc(r.url)}</td>
+          <td class="cell-mono cell-url" title="${esc(r.selector)}">${esc(r.selector)}</td>
+          <td>${r.clicks_completed}</td>
+          <td><span class="badge ${r.status === 'OK' ? 'badge-ok' : 'badge-fail'}">${r.status}</span></td>
+          <td style="color:var(--red); font-size:12px;">${esc(r.error || '')}</td>
+        </tr>
+      `).join('');
+
+      document.getElementById('dl-csv-btn').href = `/results/${state.jobId}`;
+      goToStep(4);
+    }
+
+    // ── Log helpers ──────────────────────────────────────────
+    function appendLog(text, cls = 'log-info') {
+      const panel = document.getElementById('log-panel');
+      const wasAtBottom = panel.scrollHeight - panel.scrollTop - panel.clientHeight < 40;
+      const line = document.createElement('div');
+      line.className = 'log-line ' + cls;
+      line.innerHTML = `<span class="log-ts">${new Date().toLocaleTimeString()}</span><span class="log-msg">${esc(text)}</span>`;
+      panel.appendChild(line);
+      if (wasAtBottom) panel.scrollTop = panel.scrollHeight;
+    }
+
+    function clearLog() {
+      document.getElementById('log-panel').innerHTML = '';
+    }
+
+    // ── Banner ───────────────────────────────────────────────
+    function setBanner(type, icon, text) {
+      const b = document.getElementById('run-banner');
+      b.className = 'status-banner banner-' + type;
+      document.getElementById('run-banner-icon').textContent = icon;
+      document.getElementById('run-banner-text').textContent = text;
+    }
+
+    // ── History ──────────────────────────────────────────────
+    async function loadHistory() {
+      const res = await fetch('/jobs');
+      const jobs = await res.json();
+      const list = document.getElementById('history-list');
+
+      if (!jobs.length) {
+        list.innerHTML = '<div class="history-empty">No jobs yet</div>';
+        return;
+      }
+
+      list.innerHTML = jobs.map(j => {
+        const dotCls = `dot-${j.status}`;
+        const ts = j.timestamp ? new Date(j.timestamp).toLocaleTimeString() : '';
+        const dl = j.results_ready
+          ? `<a class="history-dl" href="/results/${j.id}" title="Download CSV" onclick="event.stopPropagation()">⬇</a>`
+          : '';
+        return `
+          <div class="history-item" onclick="jumpToJob('${j.id}', ${j.results_ready})">
+            <div class="history-dot ${dotCls}"></div>
+            <div class="history-info">
+              <div class="history-id">${j.id.slice(0, 8)}…</div>
+              <div class="history-meta">${j.task_count} tasks · ${ts}</div>
+            </div>
+            <span class="badge badge-${j.status}" style="font-size:10px">${j.status}</span>
+            ${dl}
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function jumpToJob(jobId, resultsReady) {
+      if (!resultsReady) return;
+      state.jobId = jobId;
+      // mark all steps done and go to 4
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`step-dot-${i}`).classList.add('done');
+        document.getElementById(`step-dot-${i}`).classList.remove('active');
+      }
+      await loadResults();
+    }
+
+    // ── Reset ────────────────────────────────────────────────
+    function resetAll() {
+      if (state.pollTimer) clearInterval(state.pollTimer);
+      state.jobId = null;
+      state.taskCount = 0;
+      state.tasks = [];
+      state.logCount = 0;
+      document.getElementById('file-pill').classList.remove('show');
+      document.getElementById('file-input').value = '';
+      hideUploadError();
+      goToStep(1);
+    }
+
+    // ── Utils ────────────────────────────────────────────────
+    function esc(s) {
+      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Init
+    loadHistory();
+  </script>
+</body>
+</html>

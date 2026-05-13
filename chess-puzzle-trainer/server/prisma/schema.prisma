@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int             @id @default(autoincrement())
+  email          String          @unique
+  passwordHash   String
+  displayName    String
+  trainingRating Int             @default(1000)
+  streak         Int             @default(0)
+  bestStreak     Int             @default(0)
+  isAdmin        Boolean         @default(false)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  attempts       Attempt[]
+  progress       PuzzleProgress[]
+}
+
+model Puzzle {
+  id            Int             @id @default(autoincrement())
+  externalId    String          @unique
+  fen           String
+  rating        Int
+  themes        Json
+  title         String
+  description   String
+  solutionMoves Json
+  source        String?
+  createdAt     DateTime        @default(now())
+  attempts      Attempt[]
+  progress      PuzzleProgress[]
+  collections   CollectionPuzzle[]
+}
+
+model Attempt {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  puzzleId    Int
+  result      String
+  hintsUsed   Int      @default(0)
+  retriesUsed Int      @default(0)
+  isDaily     Boolean  @default(false)
+  ratingDelta Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  puzzle  Puzzle @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([puzzleId])
+}
+
+model PuzzleProgress {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  puzzleId      Int
+  solvedCount   Int      @default(0)
+  failedCount   Int      @default(0)
+  skippedCount  Int      @default(0)
+  attemptsCount Int      @default(0)
+  lastResult    String?
+  lastAttemptAt DateTime?
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  puzzle Puzzle @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, puzzleId])
+}
+
+model Collection {
+  id          Int               @id @default(autoincrement())
+  name        String
+  description String
+  isDailyPool Boolean           @default(false)
+  puzzles     CollectionPuzzle[]
+}
+
+model CollectionPuzzle {
+  id           Int        @id @default(autoincrement())
+  collectionId Int
+  puzzleId     Int
+  orderIndex   Int        @default(0)
+
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  puzzle     Puzzle     @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+
+  @@unique([collectionId, puzzleId])
+}
