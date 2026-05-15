@@ -6,6 +6,13 @@
   --text:#e2e8f0;--text-muted:#8892a4;--text-dim:#4a5568;
   --panel-w:390px;
 }
+/* Quick Exit */
+#quick-exit{position:fixed;top:12px;right:12px;z-index:9999;background:#b91c1c;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;opacity:0.85;transition:opacity .2s}
+#quick-exit:hover{opacity:1}
+[data-theme="light"]{
+  --bg:#faf9f6;--surface:rgba(0,0,0,0.03);--surface2:rgba(0,0,0,0.06);
+  --border:rgba(0,0,0,0.08);--text:#1a1815;--text-muted:#6b6560;--text-dim:#9c958e;
+}
 html,body{height:100%;overflow:hidden}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
 body::before{

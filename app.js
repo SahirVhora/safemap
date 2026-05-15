@@ -802,3 +802,5 @@ document.addEventListener("DOMContentLoaded",()=>{
   wireEvents();
   requestAnimationFrame(()=>requestAnimationFrame(()=>initMap()));
 });
+// Quick Exit — ESC key safety feature
+document.addEventListener("keydown",(e)=>{if(e.key==="Escape")location.href="https://google.com";});
