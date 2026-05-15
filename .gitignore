@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+bower_components/
+jspm_packages/
+
+# Build / dist
+dist/
+build/
+*.min.js
+*.min.css
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Package lock files (optional, uncomment if desired)
+# package-lock.json
+# yarn.lock
+
+# Temp files
+*.tmp
+*.temp
