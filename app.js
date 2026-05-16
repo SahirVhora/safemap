@@ -5,127 +5,127 @@
 const CS = {
   "India":{
     "Physical Violence":["Women's Helpline: 181 (free, 24h) · iCall: 9152987821 · Vandrevala Foundation: 1860-2662-345","File FIR under Protection of Women from Domestic Violence Act 2005 at nearest police station or dial 100","NGO: Majlis Legal Centre (Mumbai) · Sakhi Women's Resource Centre · Breakthrough India"],
-    "Sexual Assault":["One Stop Crisis Centres (OSCCs) at district hospitals — free medico-legal care · iCall: 9152987821","File FIR under IPC Sec 376; POCSO Act protects minors — no fee, anonymous complaint possible","NGO: Dilaasa (Mumbai) · Rahi Foundation · INCLEN Trust — contact via local hospital social worker"],
-    "Emotional Abuse":["Vandrevala Foundation: 1860-2662-345 (24h) · iCall: 9152987821 · Snehi: 044-24640050","Emotional/psychological abuse is cognisable under DV Act 2005 — document incidents with dates","NGO: iCall TISS · Sangath (Goa) · Banyan (Chennai) — free counselling available"],
+    "Sexual Assault":["One Stop Crisis Centres (OSCCs) at district hospitals - free medico-legal care · iCall: 9152987821","File FIR under IPC Sec 376; POCSO Act protects minors - no fee, anonymous complaint possible","NGO: Dilaasa (Mumbai) · Rahi Foundation · INCLEN Trust - contact via local hospital social worker"],
+    "Emotional Abuse":["Vandrevala Foundation: 1860-2662-345 (24h) · iCall: 9152987821 · Snehi: 044-24640050","Emotional/psychological abuse is cognisable under DV Act 2005 - document incidents with dates","NGO: iCall TISS · Sangath (Goa) · Banyan (Chennai) - free counselling available"],
     "Economic Control":["NALSA free legal aid: 15100 · District Legal Services Authority provides lawyers at no cost","Open individual bank account; contact District Women & Child Development office for shelter/support","NGO: SEWA (Self Employed Women's Association) · Mann Deshi Foundation · Usha Multipurpose Cooperative"],
-    "Stalking/Harassment":["File complaint under IPC Sec 354D (stalking) — cognisable, non-bailable offence · Police helpline: 100","NCW online complaint portal: ncwapps.nic.in · Safe City app (SafetiPin) for incident reporting","NGO: Safecity (iamgurgaon.org) · Jagori · Action Aid India — safety audits and legal support"],
-    "Child Marriage":["Childline India: 1098 (free, 24h) · file complaint with District Child Protection Unit (DCPU)","Child marriage is prohibited under PCMA 2006 — any adult, NGO or official can file complaint","NGO: Girls Not Brides India · ICRW India · Breakthrough — contact local district social welfare office"],
-    "Honour-based Violence":["NCW helpline: 7827170170 · State Women's Commission (varies by state) · Police: 100","Contact District Collector/Magistrate for protection order — courts respond within 3 days under DV Act","NGO: Swayam (Kolkata) · Saheli Women's Resource Centre (Delhi) · NFIW"],
-    "Trafficking":["Anti-Trafficking helpline: 1800-419-8588 (free) · Childline: 1098 · Police Anti-HTCU unit","File complaint with local police Anti-Human Trafficking Unit (AHTU) — present in every district SP office","NGO: Prajwala (Hyderabad) · IJM India · Rescue Foundation (Mumbai)"],
+    "Stalking/Harassment":["File complaint under IPC Sec 354D (stalking) - cognisable, non-bailable offence · Police helpline: 100","NCW online complaint portal: ncwapps.nic.in · Safe City app (SafetiPin) for incident reporting","NGO: Safecity (iamgurgaon.org) · Jagori · Action Aid India - safety audits and legal support"],
+    "Child Marriage":["Childline India: 1098 (free, 24h) · file complaint with District Child Protection Unit (DCPU)","Child marriage is prohibited under PCMA 2006 - any adult, NGO or official can file complaint","NGO: Girls Not Brides India · ICRW India · Breakthrough - contact local district social welfare office"],
+    "Honour-based Violence":["NCW helpline: 7827170170 · State Women's Commission (varies by state) · Police: 100","Contact District Collector/Magistrate for protection order - courts respond within 3 days under DV Act","NGO: Swayam (Kolkata) · Saheli Women's Resource Centre (Delhi) · NFIW"],
+    "Trafficking":["Anti-Trafficking helpline: 1800-419-8588 (free) · Childline: 1098 · Police Anti-HTCU unit","File complaint with local police Anti-Human Trafficking Unit (AHTU) - present in every district SP office","NGO: Prajwala (Hyderabad) · IJM India · Rescue Foundation (Mumbai)"],
   },
   "UK":{
-    "Physical Violence":["National DV Helpline: 0808 2000 247 (free, 24h) · Women's Aid · Refuge · Men's Advice Line: 0808 801 0327","Call 999 (emergency) or 101 (non-emergency) — police have dedicated domestic abuse investigation units","NGO: Women's Aid · Refuge · SafeLives · Respect Men's Advice Line for male victims"],
-    "Sexual Assault":["Rape Crisis: 0808 802 9999 (free) · Sexual Assault Referral Centres (SARCs) — free NHS forensic care","You can attend a SARC without involving police; they preserve evidence for up to 7 days if you choose","NGO: Survivors UK (men & boys): 0203 598 3898 · Rape Crisis England & Wales · ISVA support workers"],
-    "Emotional Abuse":["National DV Helpline: 0808 2000 247 · Mind: 0300 123 3393 · Samaritans: 116 123 (24h)","Coercive control is a criminal offence under Serious Crime Act 2015 — you can report it to 101","NGO: Women's Aid · Refuge · ManKind Initiative (for men): 01823 334244"],
+    "Physical Violence":["National DV Helpline: 0808 2000 247 (free, 24h) · Women's Aid · Refuge · Men's Advice Line: 0808 801 0327","Call 999 (emergency) or 101 (non-emergency) - police have dedicated domestic abuse investigation units","NGO: Women's Aid · Refuge · SafeLives · Respect Men's Advice Line for male victims"],
+    "Sexual Assault":["Rape Crisis: 0808 802 9999 (free) · Sexual Assault Referral Centres (SARCs) - free NHS forensic care","You can attend a SARC without involving police; they preserve evidence for up to 7 days if you choose","NGO: Survivors UK (men & boys): 0203 598 3898 · Rape Crisis England & Wales · ISVA support workers"],
+    "Emotional Abuse":["National DV Helpline: 0808 2000 247 · Mind: 0300 123 3393 · Samaritans: 116 123 (24h)","Coercive control is a criminal offence under Serious Crime Act 2015 - you can report it to 101","NGO: Women's Aid · Refuge · ManKind Initiative (for men): 01823 334244"],
     "Economic Control":["Citizens Advice: 0800 144 8848 · Surviving Economic Abuse charity: survivingeconomicabuse.org","Contact DWP for emergency welfare payments; Legal Aid available for financial protection orders","NGO: Surviving Economic Abuse · Shelter (housing): 0808 800 4444 · StepChange debt advice"],
-    "Stalking/Harassment":["Paladin National Stalking Advocacy Service · Protection from Harassment Act 1997 — call 101","Apply for a Stalking Protection Order (SPO) through police or direct to magistrates court","NGO: Paladin NSAS · Suzy Lamplugh Trust: 020 7091 0014 · Network for Surviving Stalking"],
-    "Child Marriage":["Forced Marriage Unit: 020 7008 0151 (Mon–Fri) or 020 7008 1500 (24h emergency)","It is illegal to force someone into marriage in the UK — report to police or FMU confidentially","NGO: Karma Nirvana: 0800 599 9247 · Southall Black Sisters · Imkaan"],
-    "Honour-based Violence":["Karma Nirvana: 0800 599 9247 (Mon–Fri 9–5) · Police: 101 — specialist HBA officers available","Safe houses exist nationwide with strict location confidentiality — Karma Nirvana can refer","NGO: Southall Black Sisters · Imkaan · Iranian & Kurdish Women's Rights Organisation (IKWRO)"],
+    "Stalking/Harassment":["Paladin National Stalking Advocacy Service · Protection from Harassment Act 1997 - call 101","Apply for a Stalking Protection Order (SPO) through police or direct to magistrates court","NGO: Paladin NSAS · Suzy Lamplugh Trust: 020 7091 0014 · Network for Surviving Stalking"],
+    "Child Marriage":["Forced Marriage Unit: 020 7008 0151 (Mon–Fri) or 020 7008 1500 (24h emergency)","It is illegal to force someone into marriage in the UK - report to police or FMU confidentially","NGO: Karma Nirvana: 0800 599 9247 · Southall Black Sisters · Imkaan"],
+    "Honour-based Violence":["Karma Nirvana: 0800 599 9247 (Mon–Fri 9–5) · Police: 101 - specialist HBA officers available","Safe houses exist nationwide with strict location confidentiality - Karma Nirvana can refer","NGO: Southall Black Sisters · Imkaan · Iranian & Kurdish Women's Rights Organisation (IKWRO)"],
     "Trafficking":["Modern Slavery Helpline: 0800 0121 700 (24h, free) · National Referral Mechanism for victims","Report to police or Border Force; NRM provides access to housing, legal aid and support","NGO: Unseen UK: 0117 914 3909 · Anti-Slavery International · ECPAT UK (for children)"],
   },
   "USA":{
     "Physical Violence":["National DV Hotline: 1-800-799-7233 (24h) or text START to 88788 · call 911 in immediate danger","File for an Emergency Protective Order (EPO) through police, or a Civil Protection Order at court","NGO: YWCA local chapter · loveisrespect.org (teens): 1-866-331-9474 · Casa de Esperanza (Latina)"],
-    "Sexual Assault":["RAINN: 800-656-HOPE (4673) (24h) · Crisis Text Line: text HOME to 741741","Sexual Assault Nurse Examiners (SANEs) at hospital ERs provide free evidence kits — no police report required","NGO: RAINN.org · National Sexual Violence Resource Center (NSVRC) · FORGE (LGBTQ+)"],
-    "Emotional Abuse":["National DV Hotline: 1-800-799-7233 · NAMI helpline: 988 (Suicide & Crisis Lifeline)","Coercive control is increasingly recognised legally in US states — check your state law","NGO: thehotline.org · loveisrespect.org · One Love Foundation (young people)"],
+    "Sexual Assault":["RAINN: 800-656-HOPE (4673) (24h) · Crisis Text Line: text HOME to 741741","Sexual Assault Nurse Examiners (SANEs) at hospital ERs provide free evidence kits - no police report required","NGO: RAINN.org · National Sexual Violence Resource Center (NSVRC) · FORGE (LGBTQ+)"],
+    "Emotional Abuse":["National DV Hotline: 1-800-799-7233 · NAMI helpline: 988 (Suicide & Crisis Lifeline)","Coercive control is increasingly recognised legally in US states - check your state law","NGO: thehotline.org · loveisrespect.org · One Love Foundation (young people)"],
     "Economic Control":["NDVH Financial Abuse resources: thehotline.org/resources/financial-abuse · call 1-800-799-7233","Apply for VAWA benefits; contact local Legal Aid for financial protection orders","NGO: Allstate Foundation Purple Purse · YWCA financial empowerment programs · WomensLaw.org"],
-    "Stalking/Harassment":["Stalking Prevention Awareness Network (SPAN) · Cyber Civil Rights Initiative for online abuse","Apply for a Protective Order / Restraining Order at county courthouse — often same-day","NGO: SPARC · National Center for Victims of Crime: 1-855-4-VICTIM · Safe Horizon"],
+    "Stalking/Harassment":["Stalking Prevention Awareness Network (SPAN) · Cyber Civil Rights Initiative for online abuse","Apply for a Protective Order / Restraining Order at county courthouse - often same-day","NGO: SPARC · National Center for Victims of Crime: 1-855-4-VICTIM · Safe Horizon"],
     "Child Marriage":["Unchained At Last (US's only org ending forced/child marriage): 908-481-HOPE","Contact Child Protective Services (CPS) or law enforcement if a minor is at risk","NGO: Tahirih Justice Center · Girls Not Brides USA · Unchained at Last"],
     "Honour-based Violence":["Daya Houston · Sakhi for South Asian Women · Manavi (NJ) for South Asian communities","Contact NDVH (1-800-799-7233) or a culturally-specific DV organisation near you","NGO: Apna Ghar (Chicago) · Maitri (Bay Area) · NARIKA (Bay Area)"],
     "Trafficking":["National Human Trafficking Hotline: 1-888-373-7888 (24h) or text 233733","Contact local law enforcement, FBI, or Homeland Security Investigations (HSI)","NGO: Polaris Project · IJM US · CAST LA (survivor-centred services)"],
   },
   "Brazil":{
-    "Physical Violence":["Central de Atendimento à Mulher: 180 (free, 24h) · Disque Denúncia: 197 · Polícia: 190","Registre Boletim de Ocorrência na Delegacia da Mulher (DEAM) — Lei Maria da Penha garante proteção","NGO: Instituto Patrícia Galvão · SOS Mulher · Observe (monitoramento de políticas)"],
-    "Sexual Assault":["Ligue 180 · CREAS (Centro de Referência Especializado de Assistência Social) — gratuito","Pronto-socorro oferece atendimento pós-estupro gratuitamente — preserve evidências se possível","NGO: Centro de Referência da Mulher · ANIS (direitos reprodutivos) · Grupo Curumim"],
-    "Emotional Abuse":["CVV: 188 (24h gratuito) · CAPS local (Centro de Atenção Psicossocial) · Ligue 180","Violência psicológica é crime pela Lei Maria da Penha — registre B.O. na DEAM","NGO: Instituto Noos · Themis · SOS Mulher (0800 071 1100)"],
-    "Child Marriage":["Ligue 180 · Conselho Tutelar (proteção da criança) — presente em todos os municípios","Casamento infantil proibido pela reforma de 2019 — reporte à Promotoria da Infância","NGO: Promundo Brasil · Plan International Brasil · UNICEF Brasil"],
-    "Trafficking":["Disque Denúncia: 197 · Ministério da Justiça — núcleo de enfrentamento ao tráfico","Posto de Atendimento Humanizado ao Migrante (PAHM) em aeroportos e rodoviárias","NGO: CHAME Salvador · Núcleo de Enfrentamento ao Tráfico · Cáritas Brasileira"],
+    "Physical Violence":["Central de Atendimento à Mulher: 180 (free, 24h) · Disque Denúncia: 197 · Polícia: 190","Registre Boletim de Ocorrência na Delegacia da Mulher (DEAM) - Lei Maria da Penha garante proteção","NGO: Instituto Patrícia Galvão · SOS Mulher · Observe (monitoramento de políticas)"],
+    "Sexual Assault":["Ligue 180 · CREAS (Centro de Referência Especializado de Assistência Social) - gratuito","Pronto-socorro oferece atendimento pós-estupro gratuitamente - preserve evidências se possível","NGO: Centro de Referência da Mulher · ANIS (direitos reprodutivos) · Grupo Curumim"],
+    "Emotional Abuse":["CVV: 188 (24h gratuito) · CAPS local (Centro de Atenção Psicossocial) · Ligue 180","Violência psicológica é crime pela Lei Maria da Penha - registre B.O. na DEAM","NGO: Instituto Noos · Themis · SOS Mulher (0800 071 1100)"],
+    "Child Marriage":["Ligue 180 · Conselho Tutelar (proteção da criança) - presente em todos os municípios","Casamento infantil proibido pela reforma de 2019 - reporte à Promotoria da Infância","NGO: Promundo Brasil · Plan International Brasil · UNICEF Brasil"],
+    "Trafficking":["Disque Denúncia: 197 · Ministério da Justiça - núcleo de enfrentamento ao tráfico","Posto de Atendimento Humanizado ao Migrante (PAHM) em aeroportos e rodoviárias","NGO: CHAME Salvador · Núcleo de Enfrentamento ao Tráfico · Cáritas Brasileira"],
   },
   "South Africa":{
-    "Physical Violence":["GBV Command Centre: 0800 428 428 (free, 24h) · SAPS: 10111 · Stop Gender Violence: 0800 150 150","Open an Interdict (restraining order) at your nearest Magistrate's Court — police must assist","NGO: POWA: 011 642 4345 · Mosaic: 021 761 7585 · LifeLine: 0861 322 322"],
-    "Sexual Assault":["Thuthuzela Care Centres (TCC) — free forensic care, counselling, legal advice at 55 sites nationwide","Rape Crisis Cape Town: 021 447 9762 · CORT Durban: 031 312 2323 · TEARS: 0800 035 553","NGO: Rape Crisis · SANCA · NPA Sexual Offences Courts — specialist prosecutors available"],
-    "Emotional Abuse":["LifeLine: 0861 322 322 · FAMSA: 011 975 7107 · SADAG: 0800 21 22 23","Emotional abuse is a criminal offence under DVA 116/1998 — report to SAPS or nearest NGO","NGO: FAMSA · Childline: 0800 055 555 · SACAP-registered counsellors (sacap.org.za)"],
-    "Child Marriage":["Childline: 0800 055 555 (free) · Department of Social Development child protection services","Child marriage is illegal in South Africa — report to SAPS, Social Services, or CGCSA","NGO: Sonke Gender Justice · Plan South Africa · CGCSA"],
+    "Physical Violence":["GBV Command Centre: 0800 428 428 (free, 24h) · SAPS: 10111 · Stop Gender Violence: 0800 150 150","Open an Interdict (restraining order) at your nearest Magistrate's Court - police must assist","NGO: POWA: 011 642 4345 · Mosaic: 021 761 7585 · LifeLine: 0861 322 322"],
+    "Sexual Assault":["Thuthuzela Care Centres (TCC) - free forensic care, counselling, legal advice at 55 sites nationwide","Rape Crisis Cape Town: 021 447 9762 · CORT Durban: 031 312 2323 · TEARS: 0800 035 553","NGO: Rape Crisis · SANCA · NPA Sexual Offences Courts - specialist prosecutors available"],
+    "Emotional Abuse":["LifeLine: 0861 322 322 · FAMSA: 011 975 7107 · SADAG: 0800 21 22 23","Emotional abuse is a criminal offence under DVA 116/1998 - report to SAPS or nearest NGO","NGO: FAMSA · Childline: 0800 055 555 · SACAP-registered counsellors (sacap.org.za)"],
+    "Child Marriage":["Childline: 0800 055 555 (free) · Department of Social Development child protection services","Child marriage is illegal in South Africa - report to SAPS, Social Services, or CGCSA","NGO: Sonke Gender Justice · Plan South Africa · CGCSA"],
     "Trafficking":["Stop Trafficking of People (STOP): 021 447 5096 · DSD: 0800 220 250","Report to SAPS or contact IOM South Africa (iom.int) for victim support and shelter","NGO: IOM SA · Childline SA · Love Justice International · SWEAT"],
   },
   "Pakistan":{
     "Physical Violence":["Edhi Foundation: 115 · Punjab Women's Helpline (Umang): 0311-7786264 · Police: 15","File FIR under PPEWA 2010 (Punjab) or Protection Against Harassment of Women Act","NGO: Aurat Foundation (Lahore) · Shirkat Gah · ROZAN Counselling Centre: 051-2890505"],
     "Honour-based Violence":["NCSW (National Commission on Status of Women): 051-9204788 · Umang helpline: 0311-7786264","Seek shelter at government Darul Aman or WAJ (Women's Aid Junction) safe house","NGO: Aurat Foundation · White Ribbon Pakistan · Madadgar helpline: 0800-15522"],
-    "Child Marriage":["Sahil: 051-2890505 · Child Protection & Welfare Bureau Punjab: 1121 (free, 24h)","Child marriage under 18 is illegal — file complaint with local police or Child Protection Bureau","NGO: Sahil · Girls Not Brides Pakistan · SPARC — district offices in all provinces"],
+    "Child Marriage":["Sahil: 051-2890505 · Child Protection & Welfare Bureau Punjab: 1121 (free, 24h)","Child marriage under 18 is illegal - file complaint with local police or Child Protection Bureau","NGO: Sahil · Girls Not Brides Pakistan · SPARC - district offices in all provinces"],
     "Economic Control":["Contact District Women Development Department · Rozgar scheme for women's employment","Pakistan Poverty Alleviation Fund (PPAF) microfinance programmes available in rural areas","NGO: Kashf Foundation (microcredit) · Akhuwat (interest-free loans) · NRSP"],
     "Trafficking":["FIA Anti-Trafficking helpline: 1919 · contact nearest FIA office (fia.gov.pk)","Azaad Foundation · Bedari · Simorgh Women's Resource & Publication Centre","NGO: Azaad Foundation · IOM Pakistan · WAJ safe houses"],
   },
   "Bangladesh":{
     "Physical Violence":["National Help Desk: 01712-765432 · One-Stop Crisis Centres (OCCs) at medical colleges","File GD/FIR at local police station under Domestic Violence (Prevention & Protection) Act 2010","NGO: BNWLA: 02-8815367 · Naripokkho · Bangladesh National Women Lawyers' Association"],
-    "Child Marriage":["Childline: 1098 (free) · Manusher Jonno Foundation: 01711-541470 · District Social Services","Child marriage below 18 is illegal — report to Union Parishad, UNO office, or nearest police station","NGO: Plan International Bangladesh · BRAC · Manusher Jonno Foundation (MJF)"],
+    "Child Marriage":["Childline: 1098 (free) · Manusher Jonno Foundation: 01711-541470 · District Social Services","Child marriage below 18 is illegal - report to Union Parishad, UNO office, or nearest police station","NGO: Plan International Bangladesh · BRAC · Manusher Jonno Foundation (MJF)"],
     "Trafficking":["Counter Trafficking Task Force · IOM Bangladesh: 02-9887186 · Police: 999","Contact Ministry of Home Affairs anti-trafficking unit or nearest police station","NGO: BRAC Migration · Dhaka Ahsania Mission · Action Against Trafficking (ATSEC)"],
     "Economic Control":["Bangladesh Bank microfinance links · Grameen Bank (grameenbank.org.bd) · BRAC savings groups","District Legal Aid Committees (DLAC) provide free legal services under Legal Aid Services Act","NGO: BRAC · ASA microfinance · Shakti Foundation for Disadvantaged Women"],
   },
   "Mexico":{
     "Physical Violence":["INMUJERES: 55 5322 2434 · Línea de la Vida: 800 911 2000 (free, 24h) · CAVI (DF)","Denuncia ante Fiscalía Especial para Delitos de Violencia contra Mujeres (FEVIMTRA): 01 800 835 4632","NGO: EQUIS Justicia para las Mujeres · Red Nacional de Refugios · Semillas"],
-    "Sexual Assault":["FEVIMTRA: 01 800 835 4632 · CNDH: 800 202 1892 · Línea de la Vida: 800 911 2000","Centros de Justicia para Mujeres en los 32 estados ofrecen atención integral gratuita","NGO: GIRE · Marea Verde · Cápsula de Género — sin costo, confidencial"],
-    "Stalking/Harassment":["Fiscalía local — el acoso es delito en la mayoría de estados · Policía: 911","FEVIMTRA para casos federales · Aplicación Cero Acoso para reportar hostigamiento","NGO: Semillas · EQUIS · Instituto de Liderazgo Simone de Beauvoir"],
+    "Sexual Assault":["FEVIMTRA: 01 800 835 4632 · CNDH: 800 202 1892 · Línea de la Vida: 800 911 2000","Centros de Justicia para Mujeres en los 32 estados ofrecen atención integral gratuita","NGO: GIRE · Marea Verde · Cápsula de Género - sin costo, confidencial"],
+    "Stalking/Harassment":["Fiscalía local - el acoso es delito en la mayoría de estados · Policía: 911","FEVIMTRA para casos federales · Aplicación Cero Acoso para reportar hostigamiento","NGO: Semillas · EQUIS · Instituto de Liderazgo Simone de Beauvoir"],
     "Trafficking":["CNDH: 800 202 1892 · PGR anti-trata · Línea de la Vida: 800 911 2000","Centros de Atención a Víctimas de Trata · Código Penal Federal Arts. 207-208","NGO: Coalición CATW-México · Benposta · Proyecto Dilema"],
   },
   "Nigeria":{
-    "Physical Violence":["WARIF Helpline: 0800 9080 800 (Mon–Fri) · Gender Desk at nearest SCID/Police Station","Report under Violence Against Persons Prohibition (VAPP) Act 2015 — 26 states adopted it","NGO: WARIF (Lagos) · FIDA Nigeria · Project Alert on Violence Against Women: 01 774 0607"],
-    "Sexual Assault":["WARIF: 0800 9080 800 · Mirabel Centre Lagos · Sexual Assault Referral Centres (SARCs)","VAPP Act 2015 criminalises rape with minimum 12-year sentence — report to police SCID","NGO: Mirabel Centre: 01 629 5600 · WARIF · NAPTIP sexual exploitation unit"],
-    "Child Marriage":["NAPTIP: 0800 NAPTIP 0 (08001300) · State Ministry of Women Affairs & Social Development","Child Rights Act 2003 applies in 36 states — report to NAPTIP or state welfare office","NGO: Girls Not Brides Nigeria · Save the Children Nigeria · UNICEF Nigeria: 09 461 8930"],
+    "Physical Violence":["WARIF Helpline: 0800 9080 800 (Mon–Fri) · Gender Desk at nearest SCID/Police Station","Report under Violence Against Persons Prohibition (VAPP) Act 2015 - 26 states adopted it","NGO: WARIF (Lagos) · FIDA Nigeria · Project Alert on Violence Against Women: 01 774 0607"],
+    "Sexual Assault":["WARIF: 0800 9080 800 · Mirabel Centre Lagos · Sexual Assault Referral Centres (SARCs)","VAPP Act 2015 criminalises rape with minimum 12-year sentence - report to police SCID","NGO: Mirabel Centre: 01 629 5600 · WARIF · NAPTIP sexual exploitation unit"],
+    "Child Marriage":["NAPTIP: 0800 NAPTIP 0 (08001300) · State Ministry of Women Affairs & Social Development","Child Rights Act 2003 applies in 36 states - report to NAPTIP or state welfare office","NGO: Girls Not Brides Nigeria · Save the Children Nigeria · UNICEF Nigeria: 09 461 8930"],
     "Trafficking":["NAPTIP: 0800 NAPTIP 0 (08001300) · Lagos State Hotline: 0700 225 5438","Report to NAPTIP, airport Immigration, or Nigerian Police Force anti-trafficking unit","NGO: NAPTIP · IOM Nigeria · Restoration of Hope Initiative"],
   },
   "Afghanistan":{
     "Physical Violence":["Ministry of Women's Affairs: 00-93-20-210-3436 · AIHRC: 00-93-20-220-0340","Women for Afghan Women (WAW) shelters in Kabul, Herat, Mazar-i-Sharif, Jalalabad","NGO: Women for Afghan Women (WAW) · AWN (Afghan Women's Network) · Medica Afghanistan"],
     "Honour-based Violence":["AWN emergency contacts · AIHRC (aihrc.org.af) · UN Women Afghanistan office","If in imminent danger, contact nearest UNHCR office for protection referral","NGO: RAWA (rawa.org) · Medica Afghanistan (trauma care) · WAW safe houses"],
-    "Child Marriage":["Minimum marriage age 16 for girls under Civil Law — report to AIHRC or UNHCR","Contact local Huquq (justice) department or UNHCR for protection order","NGO: Girls Not Brides · UNICEF Afghanistan: 0093-79-204 5310 · Save the Children"],
-    "Trafficking":["IOM Afghanistan: 00-93-700-288-999 · UNHCR Afghanistan office","Counter-trafficking unit under Ministry of Interior — file complaint at Kabul HQ","NGO: IOM · Terre des Hommes · International Justice Mission (IJM) Afghanistan"],
+    "Child Marriage":["Minimum marriage age 16 for girls under Civil Law - report to AIHRC or UNHCR","Contact local Huquq (justice) department or UNHCR for protection order","NGO: Girls Not Brides · UNICEF Afghanistan: 0093-79-204 5310 · Save the Children"],
+    "Trafficking":["IOM Afghanistan: 00-93-700-288-999 · UNHCR Afghanistan office","Counter-trafficking unit under Ministry of Interior - file complaint at Kabul HQ","NGO: IOM · Terre des Hommes · International Justice Mission (IJM) Afghanistan"],
   },
   "Germany":{
-    "Physical Violence":["Hilfetelefon Gewalt gegen Frauen: 08000 116 016 (free, 24h, anonymous) · Notruf: 110","Gewaltschutzgesetz (GewSchG) — apply to Amtsgericht for Schutzanordnung (protection order)","NGO: Frauenhauskoordinierung (frauenhauskoordinierung.de) · bff · BIG Hotline Berlin: 030 611 03 00"],
-    "Sexual Assault":["Hilfetelefon: 08000 116 016 · Notruf für vergewaltigte Frauen Berlin: 030 251 2828","Frauennotruf at local level · Polizei takes Anzeige — medical evidence collected at Rechtsmedizin","NGO: Wildwasser · LARA Berlin: 030 216 88 88 · Frauenberatungsstellen (local)"],
-    "Emotional Abuse":["Hilfetelefon: 08000 116 016 · TelefonSeelsorge: 0800 111 0 111 (free, 24h)","Psychische Gewalt recognised under §1 GewSchG — seek local Beratungsstelle for support","NGO: BIG Hotline Berlin: 030 611 03 00 · Wildwasser · Frauenberatungsstellen"],
-    "Stalking/Harassment":["Hilfetelefon: 08000 116 016 · Polizei: 110 — Nachstellung (stalking) is §238 StGB offence","Weißer Ring: 116 006 (victim support) · apply for Kontaktverbot at Amtsgericht","NGO: Weißer Ring · STALKING.DE · Bundesverband der Frauennotrufe (bff)"],
+    "Physical Violence":["Hilfetelefon Gewalt gegen Frauen: 08000 116 016 (free, 24h, anonymous) · Notruf: 110","Gewaltschutzgesetz (GewSchG) - apply to Amtsgericht for Schutzanordnung (protection order)","NGO: Frauenhauskoordinierung (frauenhauskoordinierung.de) · bff · BIG Hotline Berlin: 030 611 03 00"],
+    "Sexual Assault":["Hilfetelefon: 08000 116 016 · Notruf für vergewaltigte Frauen Berlin: 030 251 2828","Frauennotruf at local level · Polizei takes Anzeige - medical evidence collected at Rechtsmedizin","NGO: Wildwasser · LARA Berlin: 030 216 88 88 · Frauenberatungsstellen (local)"],
+    "Emotional Abuse":["Hilfetelefon: 08000 116 016 · TelefonSeelsorge: 0800 111 0 111 (free, 24h)","Psychische Gewalt recognised under §1 GewSchG - seek local Beratungsstelle for support","NGO: BIG Hotline Berlin: 030 611 03 00 · Wildwasser · Frauenberatungsstellen"],
+    "Stalking/Harassment":["Hilfetelefon: 08000 116 016 · Polizei: 110 - Nachstellung (stalking) is §238 StGB offence","Weißer Ring: 116 006 (victim support) · apply for Kontaktverbot at Amtsgericht","NGO: Weißer Ring · STALKING.DE · Bundesverband der Frauennotrufe (bff)"],
     "Trafficking":["KOK (Koordinierungskreis Menschenhandel): kok-buero.de · BKA Hotline: 0611 551 3321","Beratungsstelle für Opfer von Menschenhandel · Bundeskriminalamt (BKA) anti-trafficking unit","NGO: Solwodi · Jadwiga · IN VIA · Terre des Femmes Deutschland"],
   },
   "France":{
-    "Physical Violence":["3919 — Violences Femmes Info (free, 24h) · SAMU: 15 · Police: 17 · Emergency: 112","Porter plainte au commissariat; ordonnance de protection available in 6 days from Tribunal Judiciaire","NGO: FNSF · En Avant Toutes (enavanttoutes.fr) · France Victimes: 116 006"],
+    "Physical Violence":["3919 - Violences Femmes Info (free, 24h) · SAMU: 15 · Police: 17 · Emergency: 112","Porter plainte au commissariat; ordonnance de protection available in 6 days from Tribunal Judiciaire","NGO: FNSF · En Avant Toutes (enavanttoutes.fr) · France Victimes: 116 006"],
     "Sexual Assault":["3919 · Collectif Féministe contre le Viol: 0800 05 95 95 (Mon–Fri 10–14h, free)","Kit de prélèvement médico-légal dans les urgences hospitalières gratuitement","NGO: CFCV · Stop Violences Femmes · Association VIOL SECOURS"],
     "Trafficking":["3919 · OCRTEH (Office Central de Répression de la Traite): report online via signal-spam.fr","Comité contre l'Esclavage Moderne (CCEM): 01 44 52 88 90 · ALC: 04 93 07 86 20","NGO: CCEM · Amicale du Nid · Secours Catholique"],
   },
   "Spain":{
-    "Physical Violence":["016 (free, anonymous, no call log, 24h) · WhatsApp: 600 000 016 · Emergency: 112","Solicitar Orden de Protección en el Juzgado de Guardia — protegida por Ley Orgánica 1/2004","NGO: Federación Mujeres Progresistas · Asociación Ana Bella · CCOO Servicio de Atención"],
-    "Sexual Assault":["016 · 112 · Unidades de Atención a Víctimas Sexuales en hospitales de referencia","Denuncia en comisaría o Guardia Civil sin necesidad de abogado — gratuito","NGO: ACASDOM · Asociación de Asistencia a Víctimas de Agresiones Sexuales · CAVAS"],
+    "Physical Violence":["016 (free, anonymous, no call log, 24h) · WhatsApp: 600 000 016 · Emergency: 112","Solicitar Orden de Protección en el Juzgado de Guardia - protegida por Ley Orgánica 1/2004","NGO: Federación Mujeres Progresistas · Asociación Ana Bella · CCOO Servicio de Atención"],
+    "Sexual Assault":["016 · 112 · Unidades de Atención a Víctimas Sexuales en hospitales de referencia","Denuncia en comisaría o Guardia Civil sin necesidad de abogado - gratuito","NGO: ACASDOM · Asociación de Asistencia a Víctimas de Agresiones Sexuales · CAVAS"],
     "Trafficking":["900 105 090 (Trata, free) · 016 · Fiscalía Antidroga y Trata · Policía: 091","Unidades Policiales Especializadas en Trata (UCRIF) en Comisarías Provinciales","NGO: Proyecto Esperanza: 91 542 11 14 · Red Española contra la Trata · Apramp"],
   },
   "Australia":{
-    "Physical Violence":["1800RESPECT: 1800 737 732 (free, 24h) · Lifeline: 13 11 14 · Police/Emergency: 000","Apply for an Apprehended Violence Order (AVO) at local court or through police — free","NGO: White Ribbon · Safe Steps VIC: 1800 015 188 · Domestic Violence NSW: 1800 656 463"],
-    "Sexual Assault":["1800RESPECT: 1800 737 732 · CASA (Centre Against Sexual Assault) — local centres nationwide","Sexual Assault Services at hospitals provide forensic care without mandatory police reporting","NGO: Full Stop Australia: 1800 385 578 · CASA Forum · Rape & Domestic Violence Services Aust."],
-    "Emotional Abuse":["1800RESPECT: 1800 737 732 · Beyond Blue: 1300 22 4636 · MensLine: 1300 789 978","Family violence provisions in all states — seek legal advice at local community legal centre","NGO: inTouch Multicultural · Immigrant Women's DV Service · No to Violence (men)"],
-    "Child Marriage":["Australian Federal Police: 131 AFP · call 1800RESPECT: 1800 737 732","Forced Marriage is a criminal offence under Criminal Code Act — report to AFP confidentially","NGO: ACRATH (acrath.org.au) · STOP THE TRAFFIK Australia · Act for Kids"],
-    "Trafficking":["Australian Federal Police: 131 AFP · Fair Work Ombudsman: 13 13 94","National Referral Mechanism — report to AFP or Border Force · SOCA (Salvation Army)","NGO: Anti-Slavery Australia · Scarlet Alliance · ACRATH"],
+    "Physical Violence":["1800RESPECT: 1800 737 732 (free, 24h) · Lifeline: 13 11 14 · Police/Emergency: 000","Apply for an Apprehended Violence Order (AVO) at local court or through police - free","NGO: White Ribbon · Safe Steps VIC: 1800 015 188 · Domestic Violence NSW: 1800 656 463"],
+    "Sexual Assault":["1800RESPECT: 1800 737 732 · CASA (Centre Against Sexual Assault) - local centres nationwide","Sexual Assault Services at hospitals provide forensic care without mandatory police reporting","NGO: Full Stop Australia: 1800 385 578 · CASA Forum · Rape & Domestic Violence Services Aust."],
+    "Emotional Abuse":["1800RESPECT: 1800 737 732 · Beyond Blue: 1300 22 4636 · MensLine: 1300 789 978","Family violence provisions in all states - seek legal advice at local community legal centre","NGO: inTouch Multicultural · Immigrant Women's DV Service · No to Violence (men)"],
+    "Child Marriage":["Australian Federal Police: 131 AFP · call 1800RESPECT: 1800 737 732","Forced Marriage is a criminal offence under Criminal Code Act - report to AFP confidentially","NGO: ACRATH (acrath.org.au) · STOP THE TRAFFIK Australia · Act for Kids"],
+    "Trafficking":["Australian Federal Police: 131 AFP · Fair Work Ombudsman: 13 13 94","National Referral Mechanism - report to AFP or Border Force · SOCA (Salvation Army)","NGO: Anti-Slavery Australia · Scarlet Alliance · ACRATH"],
   },
   "China":{
     "Physical Violence":["Women's Federation Hotline: 12338 · Anti-DV Law (2016) gives courts power to issue protection orders","File complaint with local Women's Federation, Public Security Bureau (PSB), or Civil Affairs Bureau","NGO: 众泽妇女法律援助中心 (Beijing) · Women's Watch China · Maple Center counselling"],
     "Sexual Assault":["12338 · Maple Center counselling: 010 6833 3388 · local PSB: 110 for emergencies","Report to Public Security Bureau · university-based support centres in major cities","NGO: Zhongze Women's Legal Aid · Beijing众泽 · Anti-DV Network China"],
-    "Emotional Abuse":["12338 · Beijing Maple Women's Psychological Counselling Centre: 010 6833 3388","Psychological violence is covered under Anti-DV Law 2016 — file with PSB or courts","NGO: Maple Center · Women's Watch China · Gender&Health Action (SHA)"],
-    "Trafficking":["Ministry of Public Security: 110 · China Social Assistance Hotline: 12345","MPS anti-trafficking units in every province — report online at www.12389.gov.cn","NGO: LoveSaves · ChinaAid · Destinations International"],
+    "Emotional Abuse":["12338 · Beijing Maple Women's Psychological Counselling Centre: 010 6833 3388","Psychological violence is covered under Anti-DV Law 2016 - file with PSB or courts","NGO: Maple Center · Women's Watch China · Gender&Health Action (SHA)"],
+    "Trafficking":["Ministry of Public Security: 110 · China Social Assistance Hotline: 12345","MPS anti-trafficking units in every province - report online at www.12389.gov.cn","NGO: LoveSaves · ChinaAid · Destinations International"],
   },
   "Russia":{
     "Physical Violence":["All-Russia Hotline: 8-800-7000-600 (free) · Syostry Crisis Centre Moscow: +7 495 900-45-54","Note: First-offence DV was decriminalised in 2017; filing a criminal complaint is still possible but harder","NGO: ANNA National Centre for DV Prevention · Syostry Rape Crisis · Krizisny Tsentr (local)"],
     "Sexual Assault":["Syostry Rape Crisis Centre Moscow: +7 495 900-45-54 · Police: 112","Forensic medical evidence available at Bureaus of Forensic Medical Examination (BSME)","NGO: Syostry · ANNA Centre · Human Rights Watch Russia (crisis documentation)"],
-    "Emotional Abuse":["8-800-7000-600 (free) · TelefDon: 8-800-2000-122 · local Krizisny Tsentr","Psychological help at municipal crisis centres — check your regional Women's Crisis Centre","NGO: ANNA Centre · Syostry · Pomoshch (local)"],
+    "Emotional Abuse":["8-800-7000-600 (free) · TelefDon: 8-800-2000-122 · local Krizisny Tsentr","Psychological help at municipal crisis centres - check your regional Women's Crisis Centre","NGO: ANNA Centre · Syostry · Pomoshch (local)"],
   },
   "Turkey":{
-    "Physical Violence":["ALO 183 Şiddet Önleme Hattı: 183 (free, 24h) · Police: 155 · Jandarma: 156","Apply for uzaklaştırma kararı (restraining order) at Family Court — Law No.6284","NGO: Mor Çatı Kadın Sığınağı Vakfı: 0212 292 52 21 · Kadın Dayanışma Vakfı"],
-    "Honour-based Violence":["ALO 183 · Mor Çatı: 0212 292 52 21 · KADEM: 0216 302 11 11 · Police: 155","You have the right to a protection order under Law No.6284 — courts must respond in 24h","NGO: KAMER Diyarbakır: 0412 223 73 43 · Women for Women's Human Rights (WWHR)"],
+    "Physical Violence":["ALO 183 Şiddet Önleme Hattı: 183 (free, 24h) · Police: 155 · Jandarma: 156","Apply for uzaklaştırma kararı (restraining order) at Family Court - Law No.6284","NGO: Mor Çatı Kadın Sığınağı Vakfı: 0212 292 52 21 · Kadın Dayanışma Vakfı"],
+    "Honour-based Violence":["ALO 183 · Mor Çatı: 0212 292 52 21 · KADEM: 0216 302 11 11 · Police: 155","You have the right to a protection order under Law No.6284 - courts must respond in 24h","NGO: KAMER Diyarbakır: 0412 223 73 43 · Women for Women's Human Rights (WWHR)"],
     "Economic Control":["ALO 183 · İŞKUR (iskur.gov.tr) for employment support · KOSGEB for self-employment","Contact local Sosyal Hizmetler Müdürlüğü for shelter and economic support","NGO: Mor Çatı · Kadın Dayanışma Vakfı · KEDV (Foundation for Support of Women's Work)"],
   },
   "Kenya":{
     "Physical Violence":["GBV Hotline: 1195 (free) · GVRC Nairobi Women's Hospital: 0719 638 006 · Police: 999","Report to nearest police station under Sexual Offences Act 2006 / Protection Against DV Act","NGO: FIDA Kenya: 020 271 2332 · Wangu Kanja Foundation · Coalition on Violence Against Women"],
     "Sexual Assault":["GVRC Nairobi Women's Hospital: 0719 638 006 · Kenyatta National Hospital SATC","Free medico-legal documentation at county referral hospitals · preserve evidence if possible","NGO: FIDA Kenya · COVAW · Kenya Red Cross psychosocial support"],
-    "Child Marriage":["Childline Kenya: 116 (free) · DCI child protection · Children's Department: 020 310 4000","Child marriage is illegal under Children's Act 2001 — report to Chief, DC, or Children's Officer","NGO: Girls Not Brides Kenya · Plan International Kenya · World Vision Kenya"],
+    "Child Marriage":["Childline Kenya: 116 (free) · DCI child protection · Children's Department: 020 310 4000","Child marriage is illegal under Children's Act 2001 - report to Chief, DC, or Children's Officer","NGO: Girls Not Brides Kenya · Plan International Kenya · World Vision Kenya"],
   },
   "Ethiopia":{
     "Physical Violence":["Addis Ababa EWLA: 011 126 3026 · Police: 991 · Women's Affairs Bureau (regional)","Ethiopian Women Lawyers Association (EWLA) provides free legal aid nationwide","NGO: EWLA · Addis Ababa Women's Affairs Office · PATH Ethiopia: 011 663 4583"],
-    "Child Marriage":["EWLA: 011 126 3026 · UNICEF Ethiopia: 011 551 7000 · Children's Court","Revised Family Code sets minimum marriage age 18 — report to Kebele or Woreda court","NGO: Tostan Ethiopia · Girls Not Brides Ethiopia · Save the Children Ethiopia"],
+    "Child Marriage":["EWLA: 011 126 3026 · UNICEF Ethiopia: 011 551 7000 · Children's Court","Revised Family Code sets minimum marriage age 18 - report to Kebele or Woreda court","NGO: Tostan Ethiopia · Girls Not Brides Ethiopia · Save the Children Ethiopia"],
     "Trafficking":["IOM Ethiopia: 011 663 2250 · Police: 991 · National Referral Mechanism","Ministry of Labour & Social Affairs trafficking focal point in each region","NGO: IOM Ethiopia · International Justice Mission (IJM) Ethiopia · REST"],
   },
   // ── REGIONAL GROUPS ────────────────────────────────────────────────────────
@@ -142,7 +142,7 @@ const CS = {
     "Physical Violence":["KAFA Lebanon: +961 70 100 600 · local women's shelters vary by country · Police: 999/110","UN Women MENA: arab.unwomen.org · UNFPA MENA: arabstates.unfpa.org","NGO: ABAAD Lebanon · Sisterhood is Global Jordan · UNHCR GBV unit in conflict areas"],
     "Honour-based Violence":["KAFA Lebanon: +961 70 100 600 · contact nearest UNHCR office if at risk of persecution","Reach out to Karama (karamanetwork.org) or Women's Learning Partnership for legal guidance","NGO: Equality Now · Karama network · Terre des Femmes MENA"],
     "Child Marriage":["Contact UNICEF country office · Girls Not Brides regional partner · UNFPA programme","Girls Not Brides MENA: girlsnotbrides.org/about-us/mena","NGO: Terre des Hommes MENA · Save the Children · World Vision MENA"],
-    "Sexual Assault":["KAFA Lebanon: +961 70 100 600 · MSF in Syria/Yemen conflict zones","Contact UN Women country office or UNFPA for referral to services","NGO: IRC · MSF · CARE International — present in most MENA countries"],
+    "Sexual Assault":["KAFA Lebanon: +961 70 100 600 · MSF in Syria/Yemen conflict zones","Contact UN Women country office or UNFPA for referral to services","NGO: IRC · MSF · CARE International - present in most MENA countries"],
     "Economic Control":["UN Women economic empowerment programme · World Bank social protection","Contact local Women's Affairs Ministry or NGO microfinance programme","NGO: Oxfam MENA · Aga Khan Foundation · local NGO in your country"],
     "Trafficking":["Contact IOM regional office (iom.int) · UNHCR for victim protection","La Strada International · ECPAT regional programme · UNODC MENA office","NGO: IJM · Caritas regional · Global Modern Slavery Directory"],
     "Emotional Abuse":["Contact KAFA Lebanon or equivalent national organisation in your country","UN Women Arab States · local NGO counselling services","NGO: ABAAD · CARE International · Médecins du Monde psychological support"],
@@ -153,7 +153,7 @@ const CS = {
     "Honour-based Violence":["Contact ACTED in your country (acted.org) · UN Women Gender programme","UNHCR nearest office for protection referral if at risk of persecution","NGO: UNIFEM Central Asia · OSCE Centre · Human Rights Watch (documentation)"],
     "Child Marriage":["UN Women / UNFPA joint programme on early marriage · UNICEF country office","Report to local Mahallah Committee, district child protection, or Prosecutor's Office","NGO: Plan International Central Asia · Save the Children · UNFPA adolescent programme"],
     "Economic Control":["ACTED microfinance programmes · Aga Khan Foundation local office","Contact Women's Committee (Komitet po Delam Semyi) for economic support referral","NGO: ACTED · Mercy Corps · Aga Khan Development Network"],
-    "Trafficking":["IOM: iom.int/central-asia · OSCE anti-trafficking programme · Police: 102 (varies)","Contact national referral mechanism — La Strada has a partner in most CIS countries","NGO: La Strada Kazakhstan · Sirius (Kyrgyzstan) · Nadezhda (Tajikistan)"],
+    "Trafficking":["IOM: iom.int/central-asia · OSCE anti-trafficking programme · Police: 102 (varies)","Contact national referral mechanism - La Strada has a partner in most CIS countries","NGO: La Strada Kazakhstan · Sirius (Kyrgyzstan) · Nadezhda (Tajikistan)"],
     "Sexual Assault":["Sezim Bishkek: 0312 88-28-88 · Shoira Dushanbe · police: 102","Contact UN Women or UNFPA country office for referral to medical and legal services","NGO: UNIFEM · Médecins du Monde · local crisis centre in your city"],
     "Emotional Abuse":["Contact local crisis centre · UN Women country programme","Psychosocial support from UNHCR or NGO counsellors in your area","NGO: Counterpart International · MSH (Management Sciences for Health)"],
     "Stalking/Harassment":["Report to local police (102 in most CIS countries) · document all incidents","Contact Women's Committee or NGO for legal guidance","NGO: local women's rights NGO · OSCE field office"],
@@ -189,22 +189,22 @@ const CS = {
     "Honour-based Violence":["Contact UN Women LAC · local women's shelter (Casa de Acogida)","UNHCR if safety or asylum is at risk · document all threats","NGO: CLADEM · Amnesty International LAC · local indigenous women's organisation"],
   },
   "_EasternEurope":{
-    "Physical Violence":["Ukraine: 1547 (DV hotline) · Moldova: 0800 88 008 (free) · Romania: 0800 500 333","La Strada national hotlines (lastradainternational.org — country partner in each state)","NGO: La Strada International · ANNA Network · WAVE Network (waveproject.org)"],
+    "Physical Violence":["Ukraine: 1547 (DV hotline) · Moldova: 0800 88 008 (free) · Romania: 0800 500 333","La Strada national hotlines (lastradainternational.org - country partner in each state)","NGO: La Strada International · ANNA Network · WAVE Network (waveproject.org)"],
     "Sexual Assault":["Ukraine: 1547 · Moldova: 0800 88 008 · Romania: 0800 500 333","Report to local police · national anti-violence NGOs in each country provide medico-legal support","NGO: La Strada · Punctul de Criză Romania · Ukrainian Women's Fund"],
     "Trafficking":["La Strada International: lastradainternational.org · IOM country office","Report to police or national anti-trafficking coordinator · NRM referral available","NGO: La Strada · Caritas Ukraine · Terre des Femmes · Anti-Slavery International"],
-    "Emotional Abuse":["Ukraine: 1547 · Moldova: 0800 88 008 · Romania: 0800 500 333","Psychological violence is covered under DV laws in all three countries — report to police","NGO: La Strada · ANNA Network · local crisis centre"],
+    "Emotional Abuse":["Ukraine: 1547 · Moldova: 0800 88 008 · Romania: 0800 500 333","Psychological violence is covered under DV laws in all three countries - report to police","NGO: La Strada · ANNA Network · local crisis centre"],
     "Economic Control":["Contact local Women's Affairs office · EU social protection schemes (where applicable)","Legal aid available from national bar associations at reduced or no cost","NGO: Oxfam Eastern Europe · Caritas · local microfinance institution"],
-    "Stalking/Harassment":["Ukraine: 1547 · Romania: 0800 500 333 · Moldova: 0800 88 008","File complaint with local police — stalking is criminalised in all three countries","NGO: La Strada · Women's Law Centre Ukraine · Promo-LEX Moldova"],
+    "Stalking/Harassment":["Ukraine: 1547 · Romania: 0800 500 333 · Moldova: 0800 88 008","File complaint with local police - stalking is criminalised in all three countries","NGO: La Strada · Women's Law Centre Ukraine · Promo-LEX Moldova"],
     "Child Marriage":["Contact UNICEF country office · Girls Not Brides partner in your country","Report to child protection authorities · local Prosecutor's office","NGO: Plan International Eastern Europe · Save the Children · UNICEF"],
     "Honour-based Violence":["Contact La Strada or national women's rights NGO","UNHCR if protection is needed · document all threats carefully","NGO: La Strada · Roma women's organisations · local women's rights NGO"],
   },
   "_Global":{
-    "Physical Violence":["UN Women GBV programme: unwomen.org · UNFPA GBV emergency: unfpa.org/gbv","Contact local police · UNHCR if displaced or stateless: unhcr.org","NGO: Amnesty International · Human Rights Watch · IRC — active in 40+ countries"],
-    "Sexual Assault":["UN Women endvawnow.org · WHO clinical guidelines: who.int","MSF in conflict/emergency zones · UNFPA GBV emergency response","NGO: IRC · OXFAM · CARE International — field presence in crisis countries"],
+    "Physical Violence":["UN Women GBV programme: unwomen.org · UNFPA GBV emergency: unfpa.org/gbv","Contact local police · UNHCR if displaced or stateless: unhcr.org","NGO: Amnesty International · Human Rights Watch · IRC - active in 40+ countries"],
+    "Sexual Assault":["UN Women endvawnow.org · WHO clinical guidelines: who.int","MSF in conflict/emergency zones · UNFPA GBV emergency response","NGO: IRC · OXFAM · CARE International - field presence in crisis countries"],
     "Emotional Abuse":["UN Women: unwomen.org · local mental health support services","Document incidents; reach out to a trusted community organisation","NGO: World Vision · World Relief · ActionAid country office"],
     "Economic Control":["UN Women economic empowerment: unwomen.org · Grameen Foundation","Seek legal aid from UNHCR or local legal NGO if your rights are being restricted","NGO: Oxfam · ActionAid · Grameen Foundation microfinance networks"],
     "Stalking/Harassment":["Document all incidents with dates, times, and any witnesses","Report to local police or authorities · Hollaback! for online harassment: ihollaback.org","NGO: OSCE (osce.org) · local women's rights organisation in your area"],
-    "Child Marriage":["UNICEF: unicef.org · Girls Not Brides: girlsnotbrides.org — 1,500 member NGOs worldwide","Contact local UNICEF, UNFPA or Save the Children office in your country","NGO: Girls Not Brides · Plan International · Save the Children"],
+    "Child Marriage":["UNICEF: unicef.org · Girls Not Brides: girlsnotbrides.org - 1,500 member NGOs worldwide","Contact local UNICEF, UNFPA or Save the Children office in your country","NGO: Girls Not Brides · Plan International · Save the Children"],
     "Honour-based Violence":["UNHCR: unhcr.org for protection referral · UN Women: unwomen.org","Reach out to a trusted person outside the family if safety is at risk","NGO: Human Rights Watch · Amnesty International · Terre des Femmes"],
     "Trafficking":["IOM: iom.int · UNODC: unodc.org/unodc/en/human-trafficking","Report to local police anti-trafficking unit or nearest IOM office","NGO: IJM: ijm.org · La Strada International · ECPAT: ecpat.org"],
   },
@@ -528,7 +528,7 @@ function initMap(){
     curT=ev.transform;
     gBg.attr("transform",ev.transform);
     gMap.attr("transform",ev.transform);
-    // gHex stays at identity — reposition hexagons in screen space
+    // gHex stays at identity - reposition hexagons in screen space
     gHex.selectAll(".hex-cell").attr("transform",d=>{
       if(!d||d._px==null)return"translate(0,0)";
       const[sx,sy]=curT.apply([d._px,d._py]);
@@ -571,7 +571,7 @@ function hideLoader(){
 }
 
 // ── RENDER HEXAGONS ────────────────────────────────────────────────────────
-// Each hexagon placed at exact geographic projection — NO hexbin binning.
+// Each hexagon placed at exact geographic projection - NO hexbin binning.
 // gHex group stays at identity; positions are updated manually on zoom.
 function renderHex(){
   const projected=filtPts.map(p=>{
@@ -650,7 +650,7 @@ function openPanel(p){
   const sv=sevLabel(p.sv);
   const body=document.getElementById("pb");
   const whoRow=p.whoV
-    ?`<div class="who-bar"><div class="who-l">WHO IPV Prevalence — Women 15–49 (${p.whoYr||"latest"})</div>
+    ?`<div class="who-bar"><div class="who-l">WHO IPV Prevalence - Women 15–49 (${p.whoYr||"latest"})</div>
        <div class="who-track"><div class="who-fill" id="wf" style="width:0%"></div></div>
        <div class="who-note">${p.whoV.toFixed(1)}% experienced intimate partner violence · WHO GHO SA_0000001688</div></div>`
     :`<div style="font-size:.7rem;color:var(--text-dim);margin-top:8px;padding:7px;background:var(--surface);border-radius:6px">WHO country data not available for this region</div>`;
@@ -697,13 +697,13 @@ function updateStats(){
   const tot=filtPts.reduce((a,p)=>a+(p.estAff||p.cs),0);
   const cntrs=new Set(filtPts.map(p=>p.co)).size;
   const top=filtPts.slice().sort((a,b)=>(b.estAff||b.cs)-(a.estAff||a.cs))[0];
-  const avg=filtPts.length?(filtPts.reduce((a,p)=>a+p.sv,0)/filtPts.length).toFixed(1):"—";
+  const avg=filtPts.length?(filtPts.reduce((a,p)=>a+p.sv,0)/filtPts.length).toFixed(1):" - ";
   const val=p=>p.estAff||p.cs;
   const it={};filtPts.forEach(p=>p.issues.forEach(i=>{it[i.name]=(it[i.name]||0)+i.pct*val(p)/100}));
   const ti=Object.entries(it).sort((a,b)=>b[1]-a[1])[0];
   sv("s-cases",fmt(tot));
-  sv("s-reg",top?top.re:"—");
-  sv("s-iss",ti?ti[0].split("/")[0].trim():"—");
+  sv("s-reg",top?top.re:" - ");
+  sv("s-iss",ti?ti[0].split("/")[0].trim():" - ");
   sv("s-sev",avg);
   sv("s-cntrs",cntrs.toString());
   sv("s-pts",filtPts.length.toString());
@@ -802,5 +802,5 @@ document.addEventListener("DOMContentLoaded",()=>{
   wireEvents();
   requestAnimationFrame(()=>requestAnimationFrame(()=>initMap()));
 });
-// Quick Exit — ESC key safety feature
+// Quick Exit - ESC key safety feature
 document.addEventListener("keydown",(e)=>{if(e.key==="Escape")location.href="https://google.com";});

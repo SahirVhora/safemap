@@ -1,6 +1,6 @@
 # SafeMap 🛡️
 
-Global Domestic Violence Awareness Dashboard — interactive map showing country-level data and resources.
+Global Domestic Violence Awareness Dashboard - interactive map showing country-level data and resources.
 
 **Live:** https://sahirvhora.github.io/safemap/
 
@@ -11,7 +11,7 @@ Global Domestic Violence Awareness Dashboard — interactive map showing country
 - Dark theme, responsive design
 
 ## Tech
-Vanilla HTML/CSS/JS — no frameworks. Open index.html in any browser.
+Vanilla HTML/CSS/JS - no frameworks. Open index.html in any browser.
 
 ## Data and Safety
 

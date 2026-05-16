@@ -67,7 +67,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25)}
 .country{fill:#18243d;stroke:rgba(45,212,191,.2);stroke-width:.4}
 .graticule{fill:none;stroke:rgba(255,255,255,.03);stroke-width:.3}
 .sphere{fill:#080d1a}
-/* Hexagons — no transform from group, positioned individually in screen space */
+/* Hexagons - no transform from group, positioned individually in screen space */
 .hex-cell{cursor:pointer;stroke-width:.8;transition:stroke-width .1s}
 /* Zoom */
 #zoom-controls{position:absolute;bottom:82px;right:14px;display:flex;flex-direction:column;gap:4px;z-index:5}
