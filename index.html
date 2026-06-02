@@ -25,6 +25,10 @@
 </div>
 
 <div id="app">
+  <div id="safety-banner" role="note" aria-label="Emergency safety notice">
+    <strong>Emergency?</strong> If you are in immediate danger, call your local emergency number now. Use Quick Exit or press ESC if you need to leave fast. Data last reviewed: <span id="review-date">2 Jun 2026</span>.
+  </div>
+
   <div id="topbar">
     <div class="brand">
       <div class="brand-icon">🌍</div>
@@ -87,6 +91,17 @@
       <button class="zoom-btn" id="zi">+</button>
       <button class="zoom-btn" id="zo">−</button>
       <button class="zoom-btn" id="zr">⌂</button>
+    </div>
+
+    <div id="support-panel">
+      <div class="support-title">What to do now</div>
+      <div class="support-country" id="support-country">Select a country</div>
+      <ol id="support-steps">
+        <li>Pick a country to see country-specific support options.</li>
+        <li>If you are in danger, contact emergency services first.</li>
+        <li>Use Quick Exit or ESC if this page is unsafe to view.</li>
+      </ol>
+      <div class="freshness-pill">Source freshness: reviewed 2 Jun 2026</div>
     </div>
 
     <div id="info-panel">

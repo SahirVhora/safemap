@@ -236,7 +236,25 @@ function getSol(country, issueName){
     ["Contact local authorities or visit unwomen.org for support in your country."];
 }
 
-// ── ISO3 → country name ────────────────────────────────────────────────────
+
+function primarySupportSteps(country){
+  const direct = (CS[country] && CS[country]["Physical Violence"]) || (CS[CG[country]] && CS[CG[country]]["Physical Violence"]) || CS._Global["Physical Violence"];
+  return direct.slice(0,3);
+}
+function updateSupportPanel(country){
+  const title = country || "Select a country";
+  const steps = country ? primarySupportSteps(country) : [
+    "Pick a country to see local support contacts.",
+    "If you are in immediate danger, call local emergency services first.",
+    "Use Quick Exit or press ESC if this page is unsafe to view."
+  ];
+  const c = document.getElementById("support-country");
+  const list = document.getElementById("support-steps");
+  if(c)c.textContent = title;
+  if(list)list.innerHTML = steps.map(x=>`<li>${x}</li>`).join("");
+}
+
+// ── ISO3 -> country name ────────────────────────────────────────────────────
 const ISO3 = {AFG:"Afghanistan",BGD:"Bangladesh",BRA:"Brazil",CHN:"China",COL:"Colombia",EGY:"Egypt",ETH:"Ethiopia",DEU:"Germany",IND:"India",IDN:"Indonesia",MEX:"Mexico",NGA:"Nigeria",PAK:"Pakistan",RUS:"Russia",ZAF:"South Africa",GBR:"UK",USA:"USA",AUS:"Australia",KEN:"Kenya",TZA:"Tanzania",UGA:"Uganda",MOZ:"Mozambique",ZWE:"Zimbabwe",SOM:"Somalia",SDN:"Sudan",MLI:"Mali",TCD:"Chad",CMR:"Cameroon",COD:"DR Congo",YEM:"Yemen",SYR:"Syria",IRQ:"Iraq",SAU:"Saudi Arabia",IRN:"Iran",JOR:"Jordan",PER:"Peru",BOL:"Bolivia",VEN:"Venezuela",GTM:"Guatemala",HND:"Honduras",ECU:"Ecuador",CHL:"Chile",ARG:"Argentina",MMR:"Myanmar",KHM:"Cambodia",PHL:"Philippines",TJK:"Tajikistan",KGZ:"Kyrgyzstan",UZB:"Uzbekistan",UKR:"Ukraine",MDA:"Moldova",ROU:"Romania",NPL:"Nepal",LKA:"Sri Lanka",FRA:"France",ESP:"Spain",ITA:"Italy",TUR:"Turkey",MAR:"Morocco",DZA:"Algeria",VNM:"Vietnam",THA:"Thailand",BGD:"Bangladesh"};
 
 // ── COMPACT ISSUE BUILDER ─────────────────────────────────────────────────
@@ -647,6 +665,7 @@ function renderHex(){
 function openPanel(p){
   document.getElementById("ph-reg").textContent=p.re;
   document.getElementById("ph-cty").textContent=p.co;
+  updateSupportPanel(p.co);
   const sv=sevLabel(p.sv);
   const body=document.getElementById("pb");
   const whoRow=p.whoV
@@ -663,6 +682,7 @@ function openPanel(p){
     </div>
     ${whoRow}
     ${p.estAff?`<div style="font-size:.65rem;color:var(--text-dim);margin:-2px 0 8px;padding:5px 8px;background:var(--surface);border-radius:5px">* Est. Affected = (country female population ÷ 2) × WHO IPV prevalence % · Source: WHO GHO + World Bank SP.POP.TOTL</div>`:""}
+    <div class="source-note">Data last reviewed 2 Jun 2026. Support links and helplines can change - verify locally before acting if it is safe to do so.</div>
     <div class="sec-t">Issue Breakdown</div>
     <div id="ib"></div>
     <div class="sec-t" style="margin-top:14px">Possible Solutions</div>
@@ -744,6 +764,7 @@ function resetZoom(){svgEl.transition().duration(600).call(zoomBeh.transform,d3.
 function wireEvents(){
   document.getElementById("sel-country").addEventListener("change",e=>{
     appState.country=e.target.value;appState.region="";
+    updateSupportPanel(appState.country);
     populateRegions(appState.country);
     document.getElementById("sel-region").value="";
     zoomToCountry(appState.country);
@@ -771,6 +792,7 @@ function wireEvents(){
   document.getElementById("btn-reset").addEventListener("click",()=>{
     appState={country:"",region:"",gender:"all",year:null};
     document.getElementById("sel-country").value="";
+    updateSupportPanel("");
     document.getElementById("sel-region").innerHTML='<option value="">All Regions</option>';
     document.getElementById("sel-region").disabled=true;
     document.querySelectorAll(".tgl-btn").forEach(b=>b.classList.toggle("active",b.dataset.g==="all"));
@@ -800,6 +822,7 @@ function wireEvents(){
 document.addEventListener("DOMContentLoaded",()=>{
   initDropdowns();
   wireEvents();
+  updateSupportPanel("");
   requestAnimationFrame(()=>requestAnimationFrame(()=>initMap()));
 });
 // Quick Exit - ESC key safety feature
