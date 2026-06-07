@@ -475,7 +475,15 @@ async function fetchWHO(){
     });
     whoData=lat;
     return true;
-  }catch(e){console.warn("WHO fetch:",e.message);return false}
+  }catch(e){
+    const msg = e.message;
+    if(msg==="Failed to fetch"){
+      console.warn("WHO fetch: Failed to fetch — browser blocked request (likely CORS). The WHO GHO API does not send CORS headers; data will use synthetic estimates only.");
+    }else{
+      console.warn("WHO fetch:",msg);
+    }
+    return false
+  }
 }
 function applyWHO(){
   const byC={};
@@ -581,6 +589,10 @@ async function loadWorld(){
     document.getElementById("db-dot").classList.add("live");
     document.getElementById("db-txt").textContent="WHO GHO · SA_0000001688";
     toast("✓ Calibrated with WHO Global Health Observatory data");
+  }else{
+    document.getElementById("db-dot").classList.remove("live");
+    document.getElementById("db-txt").textContent="Synthetic data only (WHO unavailable)";
+    toast("WHO data unavailable — using synthetic estimates (CORS policy blocks browser fetch from ghoapi.azureedge.net)");
   }
 }
 function hideLoader(){
