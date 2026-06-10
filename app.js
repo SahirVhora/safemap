@@ -773,7 +773,31 @@ function zoomToPoint(lat,lng){
 function resetZoom(){svgEl.transition().duration(600).call(zoomBeh.transform,d3.zoomIdentity)}
 
 // ── EVENTS ─────────────────────────────────────────────────────────────────
+const OFFLINE_HELP = {
+  "UK": ["Emergency: 999", "National Domestic Abuse Helpline: 0808 2000 247", "Samaritans: 116 123"],
+  "USA": ["Emergency: 911", "National DV Hotline: 1-800-799-7233", "Text START to 88788"],
+  "India": ["Emergency: 112", "Women's Helpline: 181", "Childline: 1098"],
+  "Australia": ["Emergency: 000", "1800RESPECT: 1800 737 732", "Lifeline: 13 11 14"],
+  "South Africa": ["Emergency: 10111", "GBV Command Centre: 0800 428 428", "LifeLine: 0861 322 322"],
+  "France": ["Emergency: 112", "Violences Femmes Info: 3919", "France Victimes: 116 006"],
+  "Germany": ["Emergency: 112", "Hilfetelefon: 08000 116 016", "TelefonSeelsorge: 0800 111 0 111"],
+  "Global": ["Call your local emergency number first", "UN Women: unwomen.org", "Use Quick Exit or ESC if unsafe"]
+};
+function detectLocalHelp(){
+  const out=document.getElementById("local-help-results");
+  if(!out)return;
+  const locale=(navigator.language||"en-GB").toUpperCase();
+  const map={GB:"UK",US:"USA",IN:"India",AU:"Australia",ZA:"South Africa",FR:"France",DE:"Germany"};
+  const code=(locale.split("-")[1]||"").slice(0,2);
+  const country=appState.country||map[code]||"Global";
+  const lines=OFFLINE_HELP[country]||OFFLINE_HELP.Global;
+  out.innerHTML=`<strong>${country} help now</strong><ol style="margin:.5rem 0 0 1.2rem;line-height:1.6;">${lines.map(x=>`<li>${x}</li>`).join("")}</ol><button class="btn" style="margin-top:8px;" onclick="location.href='https://google.com'">Exit now</button>`;
+  updateSupportPanel(country==="Global"?"":country);
+}
+
 function wireEvents(){
+  const helpBtn = document.getElementById("btn-detect-help");
+  if(helpBtn) helpBtn.addEventListener("click",detectLocalHelp);
   document.getElementById("sel-country").addEventListener("change",e=>{
     appState.country=e.target.value;appState.region="";
     updateSupportPanel(appState.country);

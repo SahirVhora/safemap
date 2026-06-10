@@ -36,6 +36,14 @@
     <strong>Emergency?</strong> If you are in immediate danger, call your local emergency number now. Use Quick Exit or press ESC if you need to leave fast. Data last reviewed: <span id="review-date">2 Jun 2026</span>.
   </div>
 
+  <div id="local-help" role="region" aria-label="Quick local help" style="margin:12px 16px;padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(24,24,27,.92);display:grid;gap:10px;max-width:760px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div><strong>Safety-first local mode</strong><div style="color:var(--text-dim);font-size:.85rem;">Quick find help near me. Uses country detection and an offline helpline cache.</div></div>
+      <button class="btn" id="btn-detect-help">Find help near me</button>
+    </div>
+    <div id="local-help-results" style="font-size:.9rem;color:var(--text-dim);">Offline cache ready for UK, USA, India, Australia, South Africa, France, Germany and Global fallback.</div>
+  </div>
+
   <div id="topbar">
     <div class="brand">
       <div class="brand-icon">🌍</div>
