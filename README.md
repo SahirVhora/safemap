@@ -10,7 +10,7 @@
 
 ### Interactive Map
 - **SVG world map** rendered with D3.js and TopoJSON - pan and zoom with on-screen controls
-- **Hexagonal heatmap** - severity-rated hexagons placed at exact geographic coordinates, colored on a 3-tier risk scale (Low 1–3, Moderate 4–6, High 7–10)
+- **Hexagonal heatmap** - severity-rated hexagons placed at exact geographic coordinates, colored on a 3-tier risk scale (Low 1-3, Moderate 4-6, High 7-10)
 - **100+ regional data points** across 18+ countries with sub-national breakdowns (states, provinces, regions)
 - **Country info panel** - click any country for detailed statistics, issue-type breakdowns, and localized solutions
 

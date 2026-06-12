@@ -19,8 +19,8 @@ const CS = {
     "Emotional Abuse":["National DV Helpline: 0808 2000 247 · Mind: 0300 123 3393 · Samaritans: 116 123 (24h)","Coercive control is a criminal offence under Serious Crime Act 2015 - you can report it to 101","NGO: Women's Aid · Refuge · ManKind Initiative (for men): 01823 334244"],
     "Economic Control":["Citizens Advice: 0800 144 8848 · Surviving Economic Abuse charity: survivingeconomicabuse.org","Contact DWP for emergency welfare payments; Legal Aid available for financial protection orders","NGO: Surviving Economic Abuse · Shelter (housing): 0808 800 4444 · StepChange debt advice"],
     "Stalking/Harassment":["Paladin National Stalking Advocacy Service · Protection from Harassment Act 1997 - call 101","Apply for a Stalking Protection Order (SPO) through police or direct to magistrates court","NGO: Paladin NSAS · Suzy Lamplugh Trust: 020 7091 0014 · Network for Surviving Stalking"],
-    "Child Marriage":["Forced Marriage Unit: 020 7008 0151 (Mon–Fri) or 020 7008 1500 (24h emergency)","It is illegal to force someone into marriage in the UK - report to police or FMU confidentially","NGO: Karma Nirvana: 0800 599 9247 · Southall Black Sisters · Imkaan"],
-    "Honour-based Violence":["Karma Nirvana: 0800 599 9247 (Mon–Fri 9–5) · Police: 101 - specialist HBA officers available","Safe houses exist nationwide with strict location confidentiality - Karma Nirvana can refer","NGO: Southall Black Sisters · Imkaan · Iranian & Kurdish Women's Rights Organisation (IKWRO)"],
+    "Child Marriage":["Forced Marriage Unit: 020 7008 0151 (Mon-Fri) or 020 7008 1500 (24h emergency)","It is illegal to force someone into marriage in the UK - report to police or FMU confidentially","NGO: Karma Nirvana: 0800 599 9247 · Southall Black Sisters · Imkaan"],
+    "Honour-based Violence":["Karma Nirvana: 0800 599 9247 (Mon-Fri 9-5) · Police: 101 - specialist HBA officers available","Safe houses exist nationwide with strict location confidentiality - Karma Nirvana can refer","NGO: Southall Black Sisters · Imkaan · Iranian & Kurdish Women's Rights Organisation (IKWRO)"],
     "Trafficking":["Modern Slavery Helpline: 0800 0121 700 (24h, free) · National Referral Mechanism for victims","Report to police or Border Force; NRM provides access to housing, legal aid and support","NGO: Unseen UK: 0117 914 3909 · Anti-Slavery International · ECPAT UK (for children)"],
   },
   "USA":{
@@ -67,7 +67,7 @@ const CS = {
     "Trafficking":["CNDH: 800 202 1892 · PGR anti-trata · Línea de la Vida: 800 911 2000","Centros de Atención a Víctimas de Trata · Código Penal Federal Arts. 207-208","NGO: Coalición CATW-México · Benposta · Proyecto Dilema"],
   },
   "Nigeria":{
-    "Physical Violence":["WARIF Helpline: 0800 9080 800 (Mon–Fri) · Gender Desk at nearest SCID/Police Station","Report under Violence Against Persons Prohibition (VAPP) Act 2015 - 26 states adopted it","NGO: WARIF (Lagos) · FIDA Nigeria · Project Alert on Violence Against Women: 01 774 0607"],
+    "Physical Violence":["WARIF Helpline: 0800 9080 800 (Mon-Fri) · Gender Desk at nearest SCID/Police Station","Report under Violence Against Persons Prohibition (VAPP) Act 2015 - 26 states adopted it","NGO: WARIF (Lagos) · FIDA Nigeria · Project Alert on Violence Against Women: 01 774 0607"],
     "Sexual Assault":["WARIF: 0800 9080 800 · Mirabel Centre Lagos · Sexual Assault Referral Centres (SARCs)","VAPP Act 2015 criminalises rape with minimum 12-year sentence - report to police SCID","NGO: Mirabel Centre: 01 629 5600 · WARIF · NAPTIP sexual exploitation unit"],
     "Child Marriage":["NAPTIP: 0800 NAPTIP 0 (08001300) · State Ministry of Women Affairs & Social Development","Child Rights Act 2003 applies in 36 states - report to NAPTIP or state welfare office","NGO: Girls Not Brides Nigeria · Save the Children Nigeria · UNICEF Nigeria: 09 461 8930"],
     "Trafficking":["NAPTIP: 0800 NAPTIP 0 (08001300) · Lagos State Hotline: 0700 225 5438","Report to NAPTIP, airport Immigration, or Nigerian Police Force anti-trafficking unit","NGO: NAPTIP · IOM Nigeria · Restoration of Hope Initiative"],
@@ -87,7 +87,7 @@ const CS = {
   },
   "France":{
     "Physical Violence":["3919 - Violences Femmes Info (free, 24h) · SAMU: 15 · Police: 17 · Emergency: 112","Porter plainte au commissariat; ordonnance de protection available in 6 days from Tribunal Judiciaire","NGO: FNSF · En Avant Toutes (enavanttoutes.fr) · France Victimes: 116 006"],
-    "Sexual Assault":["3919 · Collectif Féministe contre le Viol: 0800 05 95 95 (Mon–Fri 10–14h, free)","Kit de prélèvement médico-légal dans les urgences hospitalières gratuitement","NGO: CFCV · Stop Violences Femmes · Association VIOL SECOURS"],
+    "Sexual Assault":["3919 · Collectif Féministe contre le Viol: 0800 05 95 95 (Mon-Fri 10-14h, free)","Kit de prélèvement médico-légal dans les urgences hospitalières gratuitement","NGO: CFCV · Stop Violences Femmes · Association VIOL SECOURS"],
     "Trafficking":["3919 · OCRTEH (Office Central de Répression de la Traite): report online via signal-spam.fr","Comité contre l'Esclavage Moderne (CCEM): 01 44 52 88 90 · ALC: 04 93 07 86 20","NGO: CCEM · Amicale du Nid · Secours Catholique"],
   },
   "Spain":{
@@ -447,7 +447,7 @@ function hexPath(r){
   const pts=d3.range(6).map(i=>{const a=i*Math.PI/3;return[Math.sin(a)*r,-Math.cos(a)*r]});
   return "M"+pts[0]+"L"+pts.slice(1).join("L")+"Z";
 }
-function hexR(sv){return 9+(sv/10)*9} // 9–18 px screen-space radius
+function hexR(sv){return 9+(sv/10)*9} // 9-18 px screen-space radius
 
 // ── WORLD BANK POPULATION FETCH ────────────────────────────────────────────
 let wbPop={};
@@ -681,7 +681,7 @@ function openPanel(p){
   const sv=sevLabel(p.sv);
   const body=document.getElementById("pb");
   const whoRow=p.whoV
-    ?`<div class="who-bar"><div class="who-l">WHO IPV Prevalence - Women 15–49 (${p.whoYr||"latest"})</div>
+    ?`<div class="who-bar"><div class="who-l">WHO IPV Prevalence - Women 15-49 (${p.whoYr||"latest"})</div>
        <div class="who-track"><div class="who-fill" id="wf" style="width:0%"></div></div>
        <div class="who-note">${p.whoV.toFixed(1)}% experienced intimate partner violence · WHO GHO SA_0000001688</div></div>`
     :`<div style="font-size:.7rem;color:var(--text-dim);margin-top:8px;padding:7px;background:var(--surface);border-radius:6px">WHO country data not available for this region</div>`;
