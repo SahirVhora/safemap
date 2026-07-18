@@ -39,3 +39,7 @@ desktop.ini
 # Temp files
 *.tmp
 *.temp
+
+.audit-result.json
+.claude/settings.local.json
+.under-anything/
