@@ -2,6 +2,15 @@
 // CS[country][issueName] → string[3] of localized action steps.
 // CG maps countries without individual entries to a regional group key.
 // getSol() walks: country → regional group → _Global.
+// Source-review metadata is surfaced to CI so emergency contacts cannot be changed
+// indefinitely without an explicit review date. This is a review timestamp, not a
+// guarantee that every third-party service remains continuously available.
+const RESOURCE_METADATA = Object.freeze({
+  lastReviewed: "2026-07-20",
+  reviewCadenceDays: 90,
+  minimumDirectCountries: ["India", "UK", "USA"],
+});
+
 const CS = {
   "India":{
     "Physical Violence":["Women's Helpline: 181 (free, 24h) · iCall: 9152987821 · Vandrevala Foundation: 1860-2662-345","File FIR under Protection of Women from Domestic Violence Act 2005 at nearest police station or dial 100","NGO: Majlis Legal Centre (Mumbai) · Sakhi Women's Resource Centre · Breakthrough India"],
