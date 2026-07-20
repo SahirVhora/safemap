@@ -22,7 +22,7 @@ jobs:
           node-version: 22
 
       - name: Validate support-resource semantics
-        run: node --test tests/
+        run: node --test tests/*.test.js
 
       - name: Validate site files
         run: |
